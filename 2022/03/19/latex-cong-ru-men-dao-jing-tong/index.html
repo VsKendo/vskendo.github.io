@@ -1,0 +1,1884 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="LaTex从入门到精通, VsKendo&#39;s Blog">
+    <meta name="description" content="LaTeX是一种基于TeX的文档排版系统，成为现在最流行的科技写作——尤其是数学写作的工具之一.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>LaTex从入门到精通 | VsKendo&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="VsKendo's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">VsKendo&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">VsKendo&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            前人裁树，后人乘凉
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">LaTex从入门到精通</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/LaTex-Math/">
+                                <span class="chip bg-color">LaTex Math</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/LaTex/" class="post-category">
+                                LaTex
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-03-19
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-05-04
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    16 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>LaTeX是一种基于TeX的文档排版系统,把大片排版的格式细节隐藏在若干样式之后，以内容的逻辑结构统帅纷繁的格式，遂成为现在最流行的科技写作——尤其是数学写作的工具之一. 在Markdown中插入数学公式的语法是 <code>$数学公式$</code>和 <code>$$数学公式$$</code>.</p>
+<h1 id="行内公式"><a href="#行内公式" class="headerlink" title="行内公式"></a>行内公式</h1><p>行内公式是可以让公式在文中与文字或其他东西混编，而不独占一行。在数学模式下，符号会使用单独的字体，字母通常是倾斜的意大利体，数字和符号则是直立体。而数学符号之间的距离也与一般的水平模式不同:</p>
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>显示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>$2x+3y=34$</code></td>
+<td>$2x+3y&#x3D;34$</td>
+</tr>
+<tr>
+<td><code>2x+3y=34</code></td>
+<td>2x+3y&#x3D;34</td>
+</tr>
+</tbody></table>
+<p>因此，在排版数学公式时，即使没有特殊符号的算式（如1+1&#x3D;2），或者简单的一个字母变量，也建议进入数学模式，使用<code>$1+1=2$</code>，<code>$x$</code>，而不是使用排版普通文字的方式。</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>并非所有的 Markdown解析器&#x2F;编辑器 都支持数学公式。所以在不支持的情况下显示出来的东西可能不尽人意。hexo要安装mathjax数学公式支持插件才支持，JetBrains家的产品默认不支持。</p>
+<p>在本博客中，使用的是2.7.9的mathjax.js解析器，并不能解析指令&#x2F;&#x2F;和&#x2F;newline。所以部分显示可能有bug。</p>
+<h1 id="独立公式"><a href="#独立公式" class="headerlink" title="独立公式"></a>独立公式</h1><p>独立公式单独占一行,不和其他文字混编<br>示例: <code> $$c=2πr$$</code><br>显示: $$c&#x3D;2πr$$</p>
+<h1 id="断行和分页"><a href="#断行和分页" class="headerlink" title="断行和分页"></a>断行和分页</h1><p>使用 <code>\\</code>或 <code>\newline</code>  来换行。</p>
+<p>也可以使用 <code>\\[5pt]</code>来指定换行后，与前一行之间间隔5个位置。</p>
+<p>示例:</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>   
+2x+3y=34<span class="token function selector">\\</span>
+x+4y=25
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>显示<br>$$<br>2x+3y&#x3D;34\<br>x+4y&#x3D;25<br>$$</p>
+<p>此处放上显示的效果的图片，因为本博客使用的mathjax无法解析。</p>
+<p>真实的显示效果应该如下：</p>
+<p><img src="https://vskendo-1255590242.cos.ap-guangzhou.myqcloud.com/2022/05/04/133602-b1.png" alt="image-20220504133602115"></p>
+<h1 id="常用符号"><a href="#常用符号" class="headerlink" title="常用符号"></a>常用符号</h1><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>示例</th>
+<th>显示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>上下标</td>
+<td><code>S=a_&#123;1&#125;^2+a_&#123;2&#125;^2+a_&#123;3&#125;^2$</code></td>
+<td>$S&#x3D;a_{1}^2+a_{2}^2+a_{3}^2$</td>
+</tr>
+<tr>
+<td>括号</td>
+<td><code>$f(x, y) = 100 * \lbrace[(x + y) * 3] - 5\rbrace$</code></td>
+<td>$f(x, y) &#x3D; 100 * \lbrace[(x + y) * 3] - 5\rbrace$</td>
+</tr>
+<tr>
+<td>分数</td>
+<td><code>$\frac&#123;1&#125;&#123;3&#125; 与 \cfrac&#123;1&#125;&#123;3&#125;$</code></td>
+<td>$\frac{1}{3} 与 \cfrac{1}{3}$</td>
+</tr>
+<tr>
+<td>开方</td>
+<td><code>$\sqrt[3]&#123;X&#125;$</code>和<code>$\sqrt&#123;5 - x&#125;$</code></td>
+<td>$\sqrt[3]{X}$<code>和</code>$\sqrt{5 - x}$</td>
+</tr>
+<tr>
+<td>省略号</td>
+<td><code>\dots</code>或<code>\cdots</code></td>
+<td>$\dots$</td>
+</tr>
+<tr>
+<td>加粗</td>
+<td><code>$ f(x) = \textbf&#123;x&#125;^2 $ </code></td>
+<td>$ f(x) &#x3D; \textbf{x}^2 $</td>
+</tr>
+<tr>
+<td>纯文本</td>
+<td><code>$ f(x) = x^2 \mbox&#123;abcd&#125; $</code></td>
+<td>$ f(x) &#x3D; x^2 \mbox{abcd} $</td>
+</tr>
+<tr>
+<td>特殊</td>
+<td><code>$\TeX$ </code>  斜杠加上任意普通字符即可</td>
+<td>$\TeX$</td>
+</tr>
+<tr>
+<td>波浪线</td>
+<td><code>$\sim$</code></td>
+<td>$\sim$</td>
+</tr>
+<tr>
+<td>空格</td>
+<td><code>$\ $</code></td>
+<td>$\ $</td>
+</tr>
+<tr>
+<td>tab</td>
+<td><code>$\qquad$</code></td>
+<td>$\qquad$</td>
+</tr>
+<tr>
+<td>爱心</td>
+<td><code>$\heartsuit$</code></td>
+<td>$\heartsuit$</td>
+</tr>
+</tbody></table>
+<h1 id="其他字符"><a href="#其他字符" class="headerlink" title="其他字符"></a>其他字符</h1><p>数学中常用的字符，比如关系运算符、对数运算符、三角运算符等。</p>
+<h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h2><table>
+<thead>
+<tr>
+<th>代码</th>
+<th>符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\pm</td>
+<td>$\pm$</td>
+</tr>
+<tr>
+<td>\times</td>
+<td>$\times$</td>
+</tr>
+<tr>
+<td>\div</td>
+<td>$\div$</td>
+</tr>
+<tr>
+<td>\mid</td>
+<td>$\mid$</td>
+</tr>
+<tr>
+<td>\nmid</td>
+<td>$\nmid$</td>
+</tr>
+<tr>
+<td>\cdot</td>
+<td>$\cdot$</td>
+</tr>
+<tr>
+<td>\circ</td>
+<td>$\circ$</td>
+</tr>
+<tr>
+<td>\ast</td>
+<td>$\ast$</td>
+</tr>
+<tr>
+<td>\bigodot</td>
+<td>$\bigodot$</td>
+</tr>
+<tr>
+<td>\bigotimes</td>
+<td>$\bigotimes$</td>
+</tr>
+<tr>
+<td>\bigoplus</td>
+<td>$\bigoplus$</td>
+</tr>
+<tr>
+<td>\leq</td>
+<td>$\leq$</td>
+</tr>
+<tr>
+<td>\geq</td>
+<td>$\geq$</td>
+</tr>
+<tr>
+<td>\neq</td>
+<td>$\neq$</td>
+</tr>
+<tr>
+<td>\approx</td>
+<td>$\approx$</td>
+</tr>
+<tr>
+<td>\equiv</td>
+<td>$\equiv$</td>
+</tr>
+<tr>
+<td>\sum</td>
+<td>$\sum$</td>
+</tr>
+<tr>
+<td>\prod</td>
+<td>$\prod$</td>
+</tr>
+</tbody></table>
+<h2 id="对数运算符"><a href="#对数运算符" class="headerlink" title="对数运算符"></a>对数运算符</h2><table>
+<thead>
+<tr>
+<th>代码</th>
+<th>符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\log</td>
+<td>$\log$</td>
+</tr>
+<tr>
+<td>\lg</td>
+<td>$\lg$</td>
+</tr>
+<tr>
+<td>\ln</td>
+<td>$\ln$</td>
+</tr>
+</tbody></table>
+<h2 id="三角运算符"><a href="#三角运算符" class="headerlink" title="三角运算符"></a>三角运算符</h2><table>
+<thead>
+<tr>
+<th>代码</th>
+<th>符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\bot</td>
+<td>$\bot$</td>
+</tr>
+<tr>
+<td>\angle</td>
+<td>$\angle$</td>
+</tr>
+</tbody></table>
+<p>还有\sin、\cos等，所有三角函数的缩写都可以。</p>
+<h2 id="微积分运算符"><a href="#微积分运算符" class="headerlink" title="微积分运算符"></a>微积分运算符</h2><table>
+<thead>
+<tr>
+<th>代码</th>
+<th>符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\prime</td>
+<td>$\prime$</td>
+</tr>
+<tr>
+<td>\int</td>
+<td>$\int$</td>
+</tr>
+<tr>
+<td>\iint</td>
+<td>$\iint$</td>
+</tr>
+<tr>
+<td>\iiint</td>
+<td>$\iiint$</td>
+</tr>
+<tr>
+<td>\oint</td>
+<td>$\oint$</td>
+</tr>
+<tr>
+<td>\infty</td>
+<td>$\infty$</td>
+</tr>
+<tr>
+<td>\nabla</td>
+<td>$\nabla$</td>
+</tr>
+<tr>
+<td>\mathrm{d}</td>
+<td>$\mathrm{d}$</td>
+</tr>
+</tbody></table>
+<h2 id="集合运算符"><a href="#集合运算符" class="headerlink" title="集合运算符"></a>集合运算符</h2><table>
+<thead>
+<tr>
+<th>代码</th>
+<th>符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\emptyset</td>
+<td>$\emptyset$</td>
+</tr>
+<tr>
+<td>\in</td>
+<td>$\in$</td>
+</tr>
+<tr>
+<td>\notin</td>
+<td>$\notin$</td>
+</tr>
+<tr>
+<td>\subset</td>
+<td>$\subset$</td>
+</tr>
+<tr>
+<td>\subseteq</td>
+<td>$\subseteq$</td>
+</tr>
+<tr>
+<td>\supseteq</td>
+<td>$\supseteq$</td>
+</tr>
+<tr>
+<td>\bigcap</td>
+<td>$\bigcap$</td>
+</tr>
+<tr>
+<td>\bigcup</td>
+<td>$\bigcup$</td>
+</tr>
+<tr>
+<td>\bigvee</td>
+<td>$\bigvee$</td>
+</tr>
+<tr>
+<td>\bigwedge</td>
+<td>$\bigwedge$</td>
+</tr>
+<tr>
+<td>\biguplus</td>
+<td>$\biguplus$</td>
+</tr>
+<tr>
+<td>\bigsqcup</td>
+<td>$\bigsqcup$</td>
+</tr>
+</tbody></table>
+<h2 id="希腊字母"><a href="#希腊字母" class="headerlink" title="希腊字母"></a>希腊字母</h2><p>LATEX2$\epsilon$ 没有定义Alpha 的大写形式，因为它和普通的罗马字体A 很像。也许新的数学编码完成后会有所变化。</p>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>大写</th>
+<th>代码</th>
+<th>小写</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>$A$</td>
+<td>\alpha</td>
+<td>$\alpha$</td>
+</tr>
+<tr>
+<td>B</td>
+<td>$B$</td>
+<td>\beta</td>
+<td>$\beta$</td>
+</tr>
+<tr>
+<td>\Gamma</td>
+<td>$\Gamma$</td>
+<td>\gamma</td>
+<td>$\gamma$</td>
+</tr>
+<tr>
+<td>\Delta</td>
+<td>$\Delta$</td>
+<td>\delta</td>
+<td>$\delta$</td>
+</tr>
+<tr>
+<td>E</td>
+<td>$E$</td>
+<td>\epsilon</td>
+<td>$\epsilon$</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>$Z$</td>
+<td>\zeta</td>
+<td>$\zeta$</td>
+</tr>
+<tr>
+<td>H</td>
+<td>$H$</td>
+<td>\eta</td>
+<td>$\eta$</td>
+</tr>
+<tr>
+<td>\Theta</td>
+<td>$\Theta$</td>
+<td>\theta</td>
+<td>$\theta$</td>
+</tr>
+<tr>
+<td>I</td>
+<td>$I$</td>
+<td>\iota</td>
+<td>$\iota$</td>
+</tr>
+<tr>
+<td>K</td>
+<td>$K$</td>
+<td>\kappa</td>
+<td>$\kappa$</td>
+</tr>
+<tr>
+<td>Lambda</td>
+<td>$\Lambda$</td>
+<td>\lambda</td>
+<td>$\lambda$</td>
+</tr>
+<tr>
+<td>M</td>
+<td>$M$</td>
+<td>\mu</td>
+<td>$\mu$</td>
+</tr>
+<tr>
+<td>N</td>
+<td>$N$</td>
+<td>\nu</td>
+<td>$\nu$</td>
+</tr>
+<tr>
+<td>Xi</td>
+<td>$Xi$</td>
+<td>\xi</td>
+<td>$\xi$</td>
+</tr>
+<tr>
+<td>O</td>
+<td>$O$</td>
+<td>\omicron</td>
+<td>$\omicron$</td>
+</tr>
+<tr>
+<td>\Pi</td>
+<td>$\Pi$</td>
+<td>\pi</td>
+<td>$\pi$</td>
+</tr>
+<tr>
+<td>P</td>
+<td>$P$</td>
+<td>\rho</td>
+<td>$\rho$</td>
+</tr>
+<tr>
+<td>\Sigma</td>
+<td>$\Sigma$</td>
+<td>\sigma</td>
+<td>$\sigma$</td>
+</tr>
+<tr>
+<td>T</td>
+<td>$T$</td>
+<td>\tau</td>
+<td>$\tau$</td>
+</tr>
+<tr>
+<td>\Upsilon</td>
+<td>$\Upsilon$</td>
+<td>\upsilon</td>
+<td>$\upsilon$</td>
+</tr>
+<tr>
+<td>\Phi</td>
+<td>$\Phi$</td>
+<td>\phi</td>
+<td>$\phi$</td>
+</tr>
+<tr>
+<td>X</td>
+<td>$X$</td>
+<td>\chi</td>
+<td>$\chi$</td>
+</tr>
+<tr>
+<td>\Psi</td>
+<td>$\Psi$</td>
+<td>\psi</td>
+<td>$\psi$</td>
+</tr>
+<tr>
+<td>\Omega</td>
+<td>$\Omega$</td>
+<td>\omega</td>
+<td>$\omega$</td>
+</tr>
+</tbody></table>
+<h1 id="其他技巧"><a href="#其他技巧" class="headerlink" title="其他技巧"></a>其他技巧</h1><p>例子一：行距技巧</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+<span class="token function selector">\TeX</span><span class="token function selector">\ </span>is<span class="token function selector">\ </span>pronounced<span class="token function selector">\ </span>as<span class="token function selector">\ </span>
+<span class="token function selector">\tau</span><span class="token function selector">\epsilon</span><span class="token function selector">\chi</span>.<span class="token function selector">\\</span><span class="token punctuation">[</span>6pt<span class="token punctuation">]</span>
+100-m^<span class="token punctuation">{</span>3<span class="token punctuation">}</span><span class="token function selector">\ </span>of<span class="token function selector">\ </span>water<span class="token function selector">\\</span><span class="token punctuation">[</span>6pt<span class="token punctuation">]</span>
+This<span class="token function selector">\ </span>comes<span class="token function selector">\ </span>from<span class="token function selector">\ </span>my<span class="token function selector">\ </span><span class="token function selector">\heartsuit</span>
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>\TeX\ is\ pronounced\ as\<br>\tau\epsilon\chi.<br>100-m^{3}\ of\ water<br>This\ comes\ from\ my\ \heartsuit<br>$$</p>
+<p>此处放上显示的效果的图片，因为本博客使用的mathjax无法解析。</p>
+<p>真实的显示效果应该如下：</p>
+<p><img src="https://vskendo-1255590242.cos.ap-guangzhou.myqcloud.com/2022/05/04/133719-6d.png" alt="image-20220504133719255"></p>
+<p>例子二：极限、求和、分数使用技巧</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+<span class="token function selector">\lim</span>_<span class="token punctuation">{</span>n <span class="token function selector">\to</span> <span class="token function selector">\infty</span><span class="token punctuation">}</span>
+<span class="token function selector">\sum</span>_<span class="token punctuation">{</span>k=1<span class="token punctuation">}</span>^n <span class="token function selector">\frac</span><span class="token punctuation">{</span>1<span class="token punctuation">}</span><span class="token punctuation">{</span>k^2<span class="token punctuation">}</span>
+= <span class="token function selector">\frac</span><span class="token punctuation">{</span><span class="token function selector">\pi</span>^2<span class="token punctuation">}</span><span class="token punctuation">{</span>6<span class="token punctuation">}</span>
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>\lim_{n \to \infty}<br>\sum_{k&#x3D;1}^n \frac{1}{k^2}<br>&#x3D; \frac{\pi^2}{6}<br>$$</p>
+<p>例子三：集合例子</p>
+<p>数学家们通常对使用什么样的符号非常挑剔：习惯上使用“空心粗体”（blackboard bold）来表示实数集合。这种字体可用amsfonts 或amssymb 宏包中的命令\mathbb 来得到(如代码中的倒数第二行所示)。</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span> 
+<span class="token function selector">\forall</span> x <span class="token function selector">\in</span> <span class="token function selector">\mathbf</span><span class="token punctuation">{</span>R<span class="token punctuation">}</span>:
+<span class="token function selector">\qquad</span> x^<span class="token punctuation">{</span>2<span class="token punctuation">}</span> <span class="token function selector">\geq</span> 0<span class="token function selector">\
+</span>x^<span class="token punctuation">{</span>2<span class="token punctuation">}</span> <span class="token function selector">\geq</span> 0<span class="token function selector">\qquad</span>
+<span class="token function selector">\textrm</span><span class="token punctuation">{</span>for all <span class="token punctuation">}</span>x<span class="token function selector">\in</span><span class="token function selector">\mathbf</span><span class="token punctuation">{</span>R<span class="token punctuation">}</span><span class="token function selector">\
+</span>x^<span class="token punctuation">{</span>2<span class="token punctuation">}</span> <span class="token function selector">\geq</span> 0<span class="token function selector">\qquad</span>
+<span class="token function selector">\textrm</span><span class="token punctuation">{</span>for all <span class="token punctuation">}</span>x<span class="token function selector">\in</span><span class="token function selector">\mathbb</span><span class="token punctuation">{</span>R<span class="token punctuation">}</span>
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>\forall x \in \mathbf{R}:<br>\qquad x^{2} \geq 0<br>x^{2} \geq 0\qquad<br>\textrm{for all }x\in\mathbf{R}<br>x^{2} \geq 0\qquad<br>\textrm{for all }x\in\mathbb{R}<br>$$</p>
+<p>例子四：简单等式</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+a^x+y <span class="token function selector">\neq</span> a^<span class="token punctuation">{</span>x+y<span class="token punctuation">}</span>
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>a^x+y \neq a^{x+y}<br>$$</p>
+<p>例子五：平方根。方根符号的大小由LATEX自动加以调整。也可用\surd 仅给出符号。</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+<span class="token function selector">\sqrt</span><span class="token punctuation">{</span>x<span class="token punctuation">}</span> <span class="token function selector">\qquad</span>
+<span class="token function selector">\sqrt</span><span class="token punctuation">{</span> x^<span class="token punctuation">{</span>2<span class="token punctuation">}</span>+<span class="token function selector">\sqrt</span><span class="token punctuation">{</span>y<span class="token punctuation">}</span> <span class="token punctuation">}</span>
+<span class="token function selector">\qquad</span> <span class="token function selector">\sqrt</span><span class="token punctuation">[</span>3<span class="token punctuation">]</span><span class="token punctuation">{</span>2<span class="token punctuation">}</span><span class="token function selector">\
+</span><span class="token function selector">\surd</span><span class="token punctuation">[</span>x^2 + y^2<span class="token punctuation">]</span>
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>\sqrt{x} \qquad<br>\sqrt{ x^{2}+\sqrt{y} }<br>\qquad \sqrt[3]{2}<br>\surd[x^2 + y^2]<br>$$</p>
+<p>例子六：命令\overline 和\underline 在表达式的上、下方画出水平线。</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+<span class="token function selector">\overline</span><span class="token punctuation">{</span>m+n<span class="token punctuation">}</span> <span class="token function selector">\qquad</span>
+<span class="token function selector">\underline</span><span class="token punctuation">{</span>m+n<span class="token punctuation">}</span>
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>\overline{m+n} \qquad<br>\underline{m+n}<br>$$</p>
+<p>例子七：命令\overbrace 和\underbrace 在表达式的上、下方给出一水平的大括号。</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+<span class="token function selector">\underbrace</span><span class="token punctuation">{</span> a+b+<span class="token function selector">\cdots</span>+z <span class="token punctuation">}</span>_<span class="token punctuation">{</span>26<span class="token punctuation">}</span>
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>\underbrace{ a+b+\cdots+z }_{26}<br>$$</p>
+<p>例子八：数学重音符号如小箭头和˜（tilde）。可覆盖多个字符的宽重音符号可由\widetilde 和\widehat 等得到。</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+y=x^<span class="token punctuation">{</span>2<span class="token punctuation">}</span><span class="token function selector">\qquad</span> y'=2x<span class="token function selector">\qquad</span> y''=2
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>y&#x3D;x^{2}\qquad y’&#x3D;2x\qquad y’’&#x3D;2<br>$$</p>
+<p>例子九：向量（Vectors）通常用上方有小箭头（arrow symbols）的变量表示。这可由\vec 得到。</p>
+<p>另两个命令\overrightarrow 和\overleftarrow在定义从A 到B 的向量时非常有用。</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+<span class="token function selector">\vec</span> a<span class="token function selector">\quad</span><span class="token function selector">\overrightarrow</span><span class="token punctuation">{</span>AB<span class="token punctuation">}</span>
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>\vec a\quad\overrightarrow{AB}<br>$$</p>
+<p>例子十：一般情况下，乘法算式中的圆点符可以省略。然而有时为了帮助读者解读复杂的公式，也有必要用命令\cdot 将圆点符表示出来。</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+v = <span class="token punctuation">{</span><span class="token function selector">\sigma</span><span class="token punctuation">}</span>_1 <span class="token function selector">\cdot</span> <span class="token punctuation">{</span><span class="token function selector">\sigma</span><span class="token punctuation">}</span>_2
+<span class="token punctuation">{</span><span class="token function selector">\tau</span><span class="token punctuation">}</span>_1 <span class="token function selector">\cdot</span> <span class="token punctuation">{</span><span class="token function selector">\tau</span><span class="token punctuation">}</span>_2
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>v &#x3D; {\sigma}_1 \cdot {\sigma}_2<br>{\tau}_1 \cdot {\tau}_2<br>$$</p>
+<p>例子十一：分数（fraction）使用\frac{…}{…} 排版。一般来说，1&#x2F;2 这种形式更受欢迎，因为对于少量的分式，它看起来更好些。</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+1<span class="token function selector">\frac</span><span class="token punctuation">{</span>1<span class="token punctuation">}</span><span class="token punctuation">{</span>2<span class="token punctuation">}</span>~hours<span class="token function selector">\\</span>
+<span class="token function selector">\frac</span><span class="token punctuation">{</span> x^<span class="token punctuation">{</span>2<span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">{</span> k+1 <span class="token punctuation">}</span><span class="token function selector">\qquad</span>
+x^<span class="token punctuation">{</span> <span class="token function selector">\frac</span><span class="token punctuation">{</span>2<span class="token punctuation">}</span><span class="token punctuation">{</span>k+1<span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token function selector">\qquad</span>
+x^<span class="token punctuation">{</span> 1/2 <span class="token punctuation">}</span>
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>1\frac{1}{2}~hours\<br>\frac{ x^{2} }{ k+1 }\qquad<br>x^{ \frac{2}{k+1} }\qquad<br>x^{ 1&#x2F;2 }<br>$$</p>
+<p>此处放上显示的效果的图片，因为本博客使用的mathjax无法解析。</p>
+<p>真实的显示效果应该如下：</p>
+<p><img src="https://vskendo-1255590242.cos.ap-guangzhou.myqcloud.com/2022/05/04/140314-6e.png" alt="image-20220504140314315"></p>
+<p>例子十二：排版二项系数或类似的结构可以使用命令{… \choose …} 或{… \atop …}。</p>
+<p>第二个命令与第一个命令的输出相同，只是没有括号。（注意这些旧命令在amsmath 宏集中禁止使用， 而是用\binom和\genfrac来代替。后者是所有相关结构的超集， 例如可以通过、newcommand{\newatop}[2]% 来得到\atop 的一个类似结构）</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+<span class="token punctuation">{</span>n <span class="token function selector">\choose</span> k<span class="token punctuation">}</span><span class="token function selector">\qquad</span> <span class="token punctuation">{</span>x <span class="token function selector">\atop</span> y+2<span class="token punctuation">}</span>
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>{n \choose k}\qquad {x \atop y+2}<br>$$</p>
+<p>例子十三：对于二元关系，将符号堆在一起可能更有用。\stackrel 将第一项中的符号以上标大小放在处于正常位置的第二项上。</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+<span class="token function selector">\int</span> f_N(x) <span class="token function selector">\stackrel</span><span class="token punctuation">{</span>!<span class="token punctuation">}</span><span class="token punctuation">{</span>=<span class="token punctuation">}</span> 1
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>\int f_N(x) \stackrel{!}{&#x3D;} 1<br>$$</p>
+<p>例子十四：积分运算符（integral operator）。</p>
+<p>求和运算符（sum operator）。</p>
+<p>乘积运算符（product operator）</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+<span class="token function selector">\sum</span>_<span class="token punctuation">{</span>i=1<span class="token punctuation">}</span>^<span class="token punctuation">{</span>n<span class="token punctuation">}</span> <span class="token function selector">\qquad</span>
+<span class="token function selector">\int</span>_<span class="token punctuation">{</span>0<span class="token punctuation">}</span>^<span class="token punctuation">{</span><span class="token function selector">\frac</span><span class="token punctuation">{</span><span class="token function selector">\pi</span><span class="token punctuation">}</span><span class="token punctuation">{</span>2<span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token function selector">\qquad</span>
+<span class="token function selector">\prod</span>_<span class="token function selector">\epsilon</span>
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>\sum_{i&#x3D;1}^{n} \qquad<br>\int_{0}^{\frac{\pi}{2}} \qquad<br>\prod_\epsilon<br>$$</p>
+<p>例子十五：某些情况下有必要手工指出数学分隔符的正确大小。</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+<span class="token function selector">\Big</span>( (x+1) (x-1) <span class="token function selector">\Big</span>) ^<span class="token punctuation">{</span>2<span class="token punctuation">}</span><span class="token function selector">\\</span>
+<span class="token function selector">\big</span>(<span class="token function selector">\Big</span>(<span class="token function selector">\bigg</span>(<span class="token function selector">\Bigg</span>(<span class="token function selector">\quad</span>
+<span class="token function selector">\big</span><span class="token function selector">\}</span><span class="token function selector">\Big</span><span class="token function selector">\}</span><span class="token function selector">\bigg</span><span class="token function selector">\}</span><span class="token function selector">\Bigg</span><span class="token function selector">\}</span><span class="token function selector">\quad</span>
+<span class="token function selector">\big</span><span class="token function selector">\|</span><span class="token function selector">\Big</span><span class="token function selector">\|</span><span class="token function selector">\bigg</span><span class="token function selector">\|</span><span class="token function selector">\Bigg</span><span class="token function selector">\|</span>
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>\Big( (x+1) (x-1) \Big) ^{2}\<br>\big(\Big(\bigg(\Bigg(\quad<br>\big}\Big}\bigg}\Bigg}\quad<br>\big|\Big|\bigg|\Bigg|<br>$$</p>
+<p>此处放上显示的效果的图片，因为本博客使用的mathjax无法解析。</p>
+<p>真实的显示效果应该如下：</p>
+<p><img src="https://vskendo-1255590242.cos.ap-guangzhou.myqcloud.com/2022/05/04/140243-08.png" alt="image-20220504140243018"></p>
+<p>例子十六：如果公式中由TEX选择的的空格不令人满意，可以通过插入特殊的空格命令来进行调节。</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+<span class="token function selector">\int</span><span class="token function selector">\!</span><span class="token function selector">\!</span><span class="token function selector">\!</span><span class="token function selector">\int</span>_<span class="token punctuation">{</span>D<span class="token punctuation">}</span> g(x,y)
+<span class="token function selector">\,</span>  x<span class="token function selector">\,</span> y<span class="token function selector">\\</span>
+instead of<span class="token function selector">\\</span>
+<span class="token function selector">\int</span><span class="token function selector">\int</span>_<span class="token punctuation">{</span>D<span class="token punctuation">}</span> g(x,y)x y
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>\int!!!\int_{D} g(x,y)<br>,  x, y\<br>instead of\<br>\int\int_{D} g(x,y)x y<br>$$</p>
+<p>此处放上显示的效果的图片，因为本博客使用的mathjax无法解析。</p>
+<p>真实的显示效果应该如下：</p>
+<p><img src="https://vskendo-1255590242.cos.ap-guangzhou.myqcloud.com/2022/05/04/140225-36.png" alt="image-20220504140225122"></p>
+<p>例子十七：排版arrays 使用array 环境来排版数组（arrays）。</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+<span class="token function selector">\mathbf</span><span class="token punctuation">{</span>X<span class="token punctuation">}</span> =
+<span class="token function selector">\left</span>( <span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">array</span><span class="token punctuation">}</span><span class="token punctuation">{</span>ccc<span class="token punctuation">}</span>
+x_<span class="token punctuation">{</span>11<span class="token punctuation">}</span> <span class="token punctuation">&amp;</span> x_<span class="token punctuation">{</span>12<span class="token punctuation">}</span> <span class="token punctuation">&amp;</span> <span class="token function selector">\ldots</span> <span class="token function selector">\\</span>
+x_<span class="token punctuation">{</span>21<span class="token punctuation">}</span> <span class="token punctuation">&amp;</span> x_<span class="token punctuation">{</span>22<span class="token punctuation">}</span> <span class="token punctuation">&amp;</span> <span class="token function selector">\ldots</span> <span class="token function selector">\\</span>
+<span class="token function selector">\vdots</span> <span class="token punctuation">&amp;</span> <span class="token function selector">\vdots</span> <span class="token punctuation">&amp;</span> <span class="token function selector">\ddots</span>
+<span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">array</span><span class="token punctuation">}</span> <span class="token function selector">\right</span>)
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>\mathbf{X} &#x3D;<br>\left( \begin{array}{ccc}<br>x_{11} &amp; x_{12} &amp; \ldots \<br>x_{21} &amp; x_{22} &amp; \ldots \<br>\vdots &amp; \vdots &amp; \ddots<br>\end{array} \right)<br>$$</p>
+<p>此处放上显示的效果的图片，因为本博客使用的mathjax无法解析。</p>
+<p>真实的显示效果应该如下：</p>
+<p><img src="https://vskendo-1255590242.cos.ap-guangzhou.myqcloud.com/2022/05/04/135850-24.png" alt="image-20220504135850072"></p>
+<p>例子十八：array 环境也可以使用“.” 作为隐藏右分隔符来排版只有一个大分隔符的表达式。</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+y = <span class="token function selector">\left</span><span class="token function selector">\{</span> <span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">array</span><span class="token punctuation">}</span><span class="token punctuation">{</span>ll<span class="token punctuation">}</span>
+a <span class="token punctuation">&amp;</span> <span class="token function selector">\textrm</span><span class="token punctuation">{</span>if <span class="token equation string">$d>c$</span><span class="token punctuation">}</span><span class="token function selector">\\</span>
+b+x <span class="token punctuation">&amp;</span> <span class="token function selector">\textrm</span><span class="token punctuation">{</span>in the morning<span class="token punctuation">}</span><span class="token function selector">\\</span>
+l <span class="token punctuation">&amp;</span> <span class="token function selector">\textrm</span><span class="token punctuation">{</span>all day long<span class="token punctuation">}</span>
+<span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">array</span><span class="token punctuation">}</span> <span class="token function selector">\right</span>.
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>y &#x3D; \left{ \begin{array}{ll}<br>a &amp; \textrm{if $d&gt;c$}\<br>b+x &amp; \textrm{in the morning}\<br>l &amp; \textrm{all day long}<br>\end{array} \right.<br>$$</p>
+<p>此处放上显示的效果的图片，因为本博客使用的mathjax无法解析。</p>
+<p>真实的显示效果应该如下：</p>
+<p><img src="https://vskendo-1255590242.cos.ap-guangzhou.myqcloud.com/2022/05/04/135832-6f.png" alt="image-20220504135831808"></p>
+<p>例子十九：可以在array 环境中画线。例如分隔矩阵中的元素。</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+<span class="token function selector">\left</span>(<span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">array</span><span class="token punctuation">}</span><span class="token punctuation">{</span>c|c<span class="token punctuation">}</span>
+1 <span class="token punctuation">&amp;</span> 2 <span class="token function selector">\\</span>
+<span class="token function selector">\hline</span>
+3 <span class="token punctuation">&amp;</span> 4
+<span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">array</span><span class="token punctuation">}</span><span class="token function selector">\right</span>)
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>\left(\begin{array}{c|c}<br>1 &amp; 2 \<br>\hline<br>3 &amp; 4<br>\end{array}\right)<br>$$</p>
+<p>此处放上显示的效果的图片，因为本博客使用的mathjax无法解析。</p>
+<p>真实的显示效果应该如下：</p>
+<p><img src="https://vskendo-1255590242.cos.ap-guangzhou.myqcloud.com/2022/05/04/135816-99.png" alt="image-20220504135815862"></p>
+<p>例子二十：长方程不会自动地分割成小的。作者必须指定在哪里分割以及缩进多少。以下是最常使用的两种方法。</p>
+<p>其中，\nonumber 命令将阻止LATEX为此方程生成一个编号。</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+<span class="token punctuation">{</span><span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">eqnarray</span><span class="token punctuation">}</span><span class="token equation string">
+<span class="token equation-command regex">\sin</span> x &amp; = &amp; x -<span class="token equation-command regex">\frac</span>{x^{3}}{3!}
++<span class="token equation-command regex">\frac</span>{x^{5}}{5!}-{}
+<span class="token equation-command regex">\nonumber</span><span class="token equation-command regex">\\</span>
+&amp; &amp; {}-<span class="token equation-command regex">\frac</span>{x^{7}}{7!}+{}<span class="token equation-command regex">\cdots</span>
+</span><span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">eqnarray</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>{\begin{eqnarray}<br>\sin x &amp; &#x3D; &amp; x -\frac{x^{3}}{3!}<br>+\frac{x^{5}}{5!}-{}<br>\nonumber\<br>&amp; &amp; {}-\frac{x^{7}}{7!}+{}\cdots<br>\end{eqnarray}}<br>$$</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+<span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">eqnarray</span><span class="token punctuation">}</span><span class="token equation string">
+{ <span class="token equation-command regex">\cos</span> x = 1
+-<span class="token equation-command regex">\frac</span>{x^{2}}{2!} +{} }
+<span class="token equation-command regex">\nonumber</span><span class="token equation-command regex">\\</span>
+&amp; &amp; {}+<span class="token equation-command regex">\frac</span>{x^{4}}{4!}
+-<span class="token equation-command regex">\frac</span>{x^{6}}{6!}+{}<span class="token equation-command regex">\cdots</span>
+</span><span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">eqnarray</span><span class="token punctuation">}</span>
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>\begin{eqnarray}<br>{ \cos x &#x3D; 1<br>-\frac{x^{2}}{2!} +{} }<br>\nonumber\<br>&amp; &amp; {}+\frac{x^{4}}{4!}<br>-\frac{x^{6}}{6!}+{}\cdots<br>\end{eqnarray}<br>$$</p>
+<p>例子二十一：改变式样。改变式样也会影响上下界显示的方式。</p>
+<p>在数学模式中，字体大小用四个命令来设定：</p>
+<p>\displaystyle (123), \textstyle (123), \scriptstyle (123) and\scriptscriptstyle (123).</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+<span class="token function selector">\mathop</span><span class="token punctuation">{</span><span class="token function selector">\mathrm</span><span class="token punctuation">{</span>corr<span class="token punctuation">}</span><span class="token punctuation">}</span>(X,Y)=
+<span class="token function selector">\frac</span><span class="token punctuation">{</span><span class="token function selector">\displaystyle</span>
+<span class="token function selector">\sum</span>_<span class="token punctuation">{</span>i=1<span class="token punctuation">}</span>^n(x_i-<span class="token function selector">\overline</span> x)
+(y_i-<span class="token function selector">\overline</span> y)<span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token function selector">\displaystyle</span><span class="token function selector">\biggl</span><span class="token punctuation">[</span>
+<span class="token function selector">\sum</span>_<span class="token punctuation">{</span>i=1<span class="token punctuation">}</span>^n(x_i-<span class="token function selector">\overline</span> x)^2
+<span class="token function selector">\sum</span>_<span class="token punctuation">{</span>i=1<span class="token punctuation">}</span>^n(y_i-<span class="token function selector">\overline</span> y)^2
+<span class="token function selector">\biggr</span><span class="token punctuation">]</span>^<span class="token punctuation">{</span>1/2<span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>\mathop{\mathrm{corr}}(X,Y)&#x3D;<br>\frac{\displaystyle<br>\sum_{i&#x3D;1}^n(x_i-\overline x)<br>(y_i-\overline y)}<br>{\displaystyle\biggl[<br>\sum_{i&#x3D;1}^n(x_i-\overline x)^2<br>\sum_{i&#x3D;1}^n(y_i-\overline y)^2<br>\biggr]^{1&#x2F;2}}<br>$$</p>
+<p>差距还是很明显的。行高大小明显不一样。显然是上面的舒服。</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+<span class="token function selector">\mathop</span><span class="token punctuation">{</span><span class="token function selector">\mathrm</span><span class="token punctuation">{</span>corr<span class="token punctuation">}</span><span class="token punctuation">}</span>(X,Y)=
+<span class="token function selector">\frac</span><span class="token punctuation">{</span>
+<span class="token function selector">\sum</span>_<span class="token punctuation">{</span>i=1<span class="token punctuation">}</span>^n(x_i-<span class="token function selector">\overline</span> x)
+(y_i-<span class="token function selector">\overline</span> y)<span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token function selector">\biggl</span><span class="token punctuation">[</span>
+<span class="token function selector">\sum</span>_<span class="token punctuation">{</span>i=1<span class="token punctuation">}</span>^n(x_i-<span class="token function selector">\overline</span> x)^2
+<span class="token function selector">\sum</span>_<span class="token punctuation">{</span>i=1<span class="token punctuation">}</span>^n(y_i-<span class="token function selector">\overline</span> y)^2
+<span class="token function selector">\biggr</span><span class="token punctuation">]</span>^<span class="token punctuation">{</span>1/2<span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>\mathop{\mathrm{corr}}(X,Y)&#x3D;<br>\frac{<br>\sum_{i&#x3D;1}^n(x_i-\overline x)<br>(y_i-\overline y)}<br>{\biggl[<br>\sum_{i&#x3D;1}^n(x_i-\overline x)^2<br>\sum_{i&#x3D;1}^n(y_i-\overline y)^2<br>\biggr]^{1&#x2F;2}}<br>$$</p>
+<p>例子二十二：在LATEX中很难得到粗体符号。这也许是故意的，因为业余排版者总是过份使用粗体。字体改变命令\mathbf 给出粗体字母，但是这些是罗马字体（竖直的），而数学符号通常是斜体。</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+<span class="token function selector">\mu</span>, M <span class="token function selector">\qquad</span> <span class="token function selector">\mathbf</span><span class="token punctuation">{</span>M<span class="token punctuation">}</span> <span class="token function selector">\qquad</span>
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>\mu, M \qquad \mathbf{M} \qquad<br>$$</p>
+<p>例子二十三：推导过程</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+<span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">align</span><span class="token punctuation">}</span><span class="token equation string">
+    <span class="token equation-command regex">\frac</span>{<span class="token equation-command regex">\partial</span> J(<span class="token equation-command regex">\theta</span>)}{<span class="token equation-command regex">\partial</span><span class="token equation-command regex">\theta</span>_j}
+    &amp; = -<span class="token equation-command regex">\frac</span>1m<span class="token equation-command regex">\sum</span>_{i=0}^m(y^i - h_<span class="token equation-command regex">\theta</span>(x^i)) <span class="token equation-command regex">\frac</span>{<span class="token equation-command regex">\partial</span>}{<span class="token equation-command regex">\partial</span><span class="token equation-command regex">\theta</span>_j}(y^i-h_<span class="token equation-command regex">\theta</span>(x^i))<span class="token equation-command regex">\\</span>
+    &amp; = -<span class="token equation-command regex">\frac</span>1m<span class="token equation-command regex">\sum</span>_{i=0}^m(y^i-h_<span class="token equation-command regex">\theta</span>(x^i)) <span class="token equation-command regex">\frac</span>{<span class="token equation-command regex">\partial</span>}{<span class="token equation-command regex">\partial</span><span class="token equation-command regex">\theta</span>_j}(<span class="token equation-command regex">\sum</span>_{j=0}^n<span class="token equation-command regex">\theta</span>_j x^i_j-y^i)<span class="token equation-command regex">\\</span>
+    &amp;=-<span class="token equation-command regex">\frac</span>1m<span class="token equation-command regex">\sum</span>_{i=0}^m(y^i -h_<span class="token equation-command regex">\theta</span>(x^i)) x^i_j
+</span><span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">align</span><span class="token punctuation">}</span>
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>\begin{align}<br>\frac{\partial J(\theta)}{\partial\theta_j}<br>&amp; &#x3D; -\frac1m\sum_{i&#x3D;0}^m(y^i - h_\theta(x^i)) \frac{\partial}{\partial\theta_j}(y^i-h_\theta(x^i))\<br>&amp; &#x3D; -\frac1m\sum_{i&#x3D;0}^m(y^i-h_\theta(x^i)) \frac{\partial}{\partial\theta_j}(\sum_{j&#x3D;0}^n\theta_j x^i_j-y^i)\<br>&amp;&#x3D;-\frac1m\sum_{i&#x3D;0}^m(y^i -h_\theta(x^i)) x^i_j<br>\end{align}<br>$$</p>
+<p>此处放上显示的效果的图片，因为本博客使用的mathjax无法解析。</p>
+<p>真实的显示效果应该如下：<img src="https://vskendo-1255590242.cos.ap-guangzhou.myqcloud.com/2022/05/04/135645-95.png" alt="image-20220504135644915"></p>
+<p>例子二十四：批量梯度下降。</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+<span class="token function selector">\frac</span><span class="token punctuation">{</span><span class="token function selector">\partial</span> J(<span class="token function selector">\theta</span>)<span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token function selector">\partial</span><span class="token function selector">\theta</span>_j<span class="token punctuation">}</span> = -<span class="token function selector">\frac</span>1m<span class="token function selector">\sum</span>_<span class="token punctuation">{</span>i=0<span class="token punctuation">}</span>^m(y^i -     h_<span class="token function selector">\theta</span>(x^i))x^i_j
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>\frac{\partial J(\theta)}{\partial\theta_j} &#x3D; -\frac1m\sum_{i&#x3D;0}^m(y^i -     h_\theta(x^i))x^i_j<br>$$</p>
+<p>例子二十五：字符下标。</p>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token equation string">$$</span>
+<span class="token function selector">\max</span> <span class="token function selector">\limits</span>_<span class="token punctuation">{</span>a&lt;x&lt;b<span class="token punctuation">}</span><span class="token function selector">\{</span>f(x)<span class="token function selector">\}</span>    
+<span class="token equation string">$$</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>$$<br>\max \limits_{a&lt;x&lt;b}{f(x)}<br>$$</p>
+<h1 id="一些说明"><a href="#一些说明" class="headerlink" title="一些说明"></a>一些说明</h1><ol>
+<li>函数名通常用罗马字体正体排版，而不是像变量名一样用意大利体排版。因此，LATEX提供下述命令来排版最重要的一些函数名。</li>
+</ol>
+<pre class="line-numbers language-latex"><code class="language-latex"><span class="token function selector">\arccos</span> <span class="token function selector">\cos</span> <span class="token function selector">\csc</span> <span class="token function selector">\exp</span> <span class="token function selector">\ker</span> <span class="token function selector">\limsup</span> <span class="token function selector">\min</span>
+
+<span class="token function selector">\arcsin</span> <span class="token function selector">\cosh</span> <span class="token function selector">\deg</span> <span class="token function selector">\gcd</span> <span class="token function selector">\lg</span> <span class="token function selector">\ln</span> <span class="token function selector">\Pr</span>
+
+<span class="token function selector">\arctan</span> <span class="token function selector">\cot</span> <span class="token function selector">\det</span> <span class="token function selector">\hom</span> <span class="token function selector">\lim</span> <span class="token function selector">\log</span> <span class="token function selector">\sec</span>
+
+<span class="token function selector">\arg</span> <span class="token function selector">\coth</span> <span class="token function selector">\dim</span> <span class="token function selector">\inf</span> <span class="token function selector">\liminf</span> <span class="token function selector">\max</span> <span class="token function selector">\sin</span>
+
+<span class="token function selector">\sinh</span> <span class="token function selector">\sup</span> <span class="token function selector">\tan</span> <span class="token function selector">\tanh</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol start="2">
+<li><p>如果将命令\left 放在开分隔符前，TEX会自动决定分隔符的正确大</p>
+<p>小。注意必须用对应的右分隔符\right 来关闭每一个左分隔符\left，并</p>
+<p>且只有当这两个分隔符排在同一行时大小才会被正确确定。如果不想在右</p>
+<p>边放任何东西，使用隐藏的‘\right.’ !</p>
+</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li>LaTeX写数学公式：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e6d2368e451a">https://www.jianshu.com/p/e6d2368e451a</a></li>
+<li>LaTeX 中插入数学公式：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42373330/article/details/89785443">https://blog.csdn.net/weixin_42373330/article/details/89785443</a></li>
+<li>Typora中利用LaTeX 插入数学公式: <a target="_blank" rel="noopener" href="https://blog.csdn.net/happyday_d/article/details/83715440">https://blog.csdn.net/happyday_d/article/details/83715440</a></li>
+<li>试试LaTeX插入数学公式：<a target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_38060633/article/details/79183905">https://blog.csdn.net/baidu_38060633/article/details/79183905</a></li>
+<li>LaTeX官方文档：<a target="_blank" rel="noopener" href="https://www.latex-project.org/help/">https://www.latex-project.org/help/</a></li>
+<li>Tobias Oetiker,Hubert Partl, Irene Hyna and Elisabeth Schlegl. 中国CTEX 用户小组[译]. 一份不太简短的LATEX2 介绍。Version 3.20, 09 August, 2001</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">VsKendo</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.vskendo.com/2022/03/19/latex-cong-ru-men-dao-jing-tong/">https://blog.vskendo.com/2022/03/19/latex-cong-ru-men-dao-jing-tong/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">VsKendo</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/LaTex-Math/">
+                                    <span class="chip bg-color">LaTex Math</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/03/19/mac-zai-vs-code-zhong-yun-xing-he-diao-shi-c-c-md/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="MAC - 在VsCode中运行和调试C/C++.md">
+                        
+                        <span class="card-title">MAC - 在VsCode中运行和调试C/C++.md</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            在Mac上，使用VsCode作为C/C++的IDE，发现还是有不少坑的。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-19
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C-C/" class="post-category">
+                                    C/C++
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/VsCode/">
+                        <span class="chip bg-color">VsCode</span>
+                    </a>
+                    
+                    <a href="/tags/C-C/">
+                        <span class="chip bg-color">C/C++</span>
+                    </a>
+                    
+                    <a href="/tags/Mac/">
+                        <span class="chip bg-color">Mac</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/03/19/latex-cong-ru-men-dao-jing-tong/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="LaTex从入门到精通">
+                        
+                        <span class="card-title">LaTex从入门到精通</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            LaTeX是一种基于TeX的文档排版系统，成为现在最流行的科技写作——尤其是数学写作的工具之一.
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/LaTex/" class="post-category">
+                                    LaTex
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/LaTex-Math/">
+                        <span class="chip bg-color">LaTex Math</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('2'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2022</span>
+            
+            <a href="/about" target="_blank">VsKendo</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">6.3k</span>
+            
+            
+            
+            
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2020112636号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/VsKendo" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:smartcrazylin@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=28860356" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 28860356" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
