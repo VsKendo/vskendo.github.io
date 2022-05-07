@@ -6,7 +6,7 @@
   <link href="https://blog.vskendo.com/atom.xml" rel="self"/>
   
   <link href="https://blog.vskendo.com/"/>
-  <updated>2022-05-06T19:26:38.533Z</updated>
+  <updated>2022-05-07T09:06:06.774Z</updated>
   <id>https://blog.vskendo.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blog.vskendo.com/2022/05/07/shi-yong-markdown-latex-bian-xie-acm-mo-ban-bing-sheng-cheng-pdf/"/>
     <id>https://blog.vskendo.com/2022/05/07/shi-yong-markdown-latex-bian-xie-acm-mo-ban-bing-sheng-cheng-pdf/</id>
     <published>2022-05-06T19:01:01.000Z</published>
-    <updated>2022-05-06T19:26:38.533Z</updated>
+    <updated>2022-05-07T09:06:06.774Z</updated>
     
     
     <summary type="html">许多人写博客都喜欢用Markdown，但是想将多个Markdown文章内容合在一起然后生成pdf却不容易，本教程将讲述如何完成你的pdf编写（多文件引入+代码高亮）。</summary>
@@ -75,9 +75,9 @@
     
     <category term="CentOS" scheme="https://blog.vskendo.com/tags/CentOS/"/>
     
-    <category term="linux" scheme="https://blog.vskendo.com/tags/linux/"/>
-    
     <category term="CentOs Stream" scheme="https://blog.vskendo.com/tags/CentOs-Stream/"/>
+    
+    <category term="linux" scheme="https://blog.vskendo.com/tags/linux/"/>
     
   </entry>
   
@@ -140,11 +140,11 @@
     <category term="运维" scheme="https://blog.vskendo.com/categories/%E8%BF%90%E7%BB%B4/"/>
     
     
+    <category term="linux" scheme="https://blog.vskendo.com/tags/linux/"/>
+    
     <category term="数据库" scheme="https://blog.vskendo.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     <category term="sql" scheme="https://blog.vskendo.com/tags/sql/"/>
-    
-    <category term="linux" scheme="https://blog.vskendo.com/tags/linux/"/>
     
   </entry>
   
@@ -174,7 +174,7 @@
     <link href="https://blog.vskendo.com/2020/10/14/centos-an-zhuang-mfs3-0/"/>
     <id>https://blog.vskendo.com/2020/10/14/centos-an-zhuang-mfs3-0/</id>
     <published>2020-10-14T06:23:32.000Z</published>
-    <updated>2022-05-07T08:57:48.235Z</updated>
+    <updated>2022-05-07T09:05:18.057Z</updated>
     
     
     <summary type="html">在Linux上安装mfs系统的方法。</summary>

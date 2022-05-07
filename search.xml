@@ -76,9 +76,9 @@
             
             <tag> CentOS </tag>
             
-            <tag> linux </tag>
-            
             <tag> CentOs Stream </tag>
+            
+            <tag> linux </tag>
             
         </tags>
       
@@ -159,11 +159,11 @@
       
         <tags>
             
+            <tag> linux </tag>
+            
             <tag> 数据库 </tag>
             
             <tag> sql </tag>
-            
-            <tag> linux </tag>
             
         </tags>
       
