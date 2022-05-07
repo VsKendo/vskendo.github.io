@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>使用Markdown+LaTeX编写模板并生成pdf</title>
+      <link href="/2022/05/07/shi-yong-markdown-latex-bian-xie-acm-mo-ban-bing-sheng-cheng-pdf/"/>
+      <url>/2022/05/07/shi-yong-markdown-latex-bian-xie-acm-mo-ban-bing-sheng-cheng-pdf/</url>
+      
+        <content type="html"><![CDATA[<h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>本教程目的是让使用Markdown的人都可以生成理想的pdf文件。如果只是使用各种软件将多个Markdown合并再导出成pdf固然可以，但是这不优雅，且几乎无法自定义。对于一些要求高的（比如要创建自己的ACM比赛模板）的人，需要一种更好的方法。</p><p>在本教程，你可以方便地将你的MD文件（使用优雅的字体）与代码（支持高亮显示）引用到一个LaTex文件中，最后直接将该LaTex文件转化为PDF文件，同时还不用深入学习LaTex。</p><h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>我使用的是2020的M1 MAC，但是Windows、Linux和x86的Mac用户也不用担心，这个教程已经考虑了跨平台的问题，不用担心多平台的困扰。</p><h2 id="所用软件"><a href="#所用软件" class="headerlink" title="所用软件"></a>所用软件</h2><ol><li>Typora——用于编写Markdown的软件</li><li>MacTex——用于编写Latex的软件。其安装后会有几个小软件<ol><li>TeXShop：这是一个 Tex 的前端，是 Tex 的编辑器和预览器。新手可以使用这个来学习。（老手一般都有自己喜欢的编辑器，比如使用VsCode而不是它）</li><li>TeX Live Utility：这个实用工具可以通过网络更新 TeX Live 包，以及配置 Tex 中的页面大小。（说白了就是个包管理器，用于更新软件用的）</li><li>LaTexiT：这是一个简单的 LaTex 图形应用程序，但是一般被当作方程编辑器，用于写数学方程，因为可以很快看到写的公式的样式。（本教程并未使用，但是一些需要经常使用LaTex编写数学公式的人会用到）</li><li>BibDesk：这是一个用于编辑和管理参考书目的工具。（论文、参考文献管理工具，本教程并未使用）</li><li>在“应用程序”里多了一个“Docs and Spell Utilities”，这个是一些介绍文档，有空可以看看。</li></ol></li><li>pandoc——一个转换器，可以把各种格式的文档转换成其他格式，比如将HTML转PDF等（本教程用它来将Markdown文件转换为Tex文件以便让LaTex引用）</li></ol><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ol><li>【LaTeX】新手教程：从入门到日常使用：<a href="https://zhuanlan.zhihu.com/p/456055339">https://zhuanlan.zhihu.com/p/456055339</a></li><li>「MacTex 小笔记」准备篇：<a href="https://blog.csdn.net/qq_33919450/article/details/124444187">https://blog.csdn.net/qq_33919450/article/details/124444187</a></li><li>ACM赛前准备——模板(排版篇)：<a href="https://www.cnblogs.com/palayutm/p/6444833.html#e5ae89e8a385texlive_11">https://www.cnblogs.com/palayutm/p/6444833.html#e5ae89e8a385texlive_11</a></li><li>ACM赛前准备——模板GitHub：<a href="https://github.com/palayutm/ply-template">https://github.com/palayutm/ply-template</a></li><li>Code Highlighting with minted：<a href="https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted">https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted</a></li><li>Multi-file LaTeX projects：<a href="https://www.overleaf.com/learn/latex/Multi-file_LaTeX_projects">https://www.overleaf.com/learn/latex/Multi-file_LaTeX_projects</a></li><li>how to typeset Chinese documents：<a href="https://www.overleaf.com/learn/latex/Chinese">https://www.overleaf.com/learn/latex/Chinese</a></li><li>Pandoc  a universal document converter：<a href="https://pandoc.org/index.html">https://pandoc.org/index.html</a></li><li>pandoc的mac操作指南，小白版：<a href="https://blog.csdn.net/weixin_43649776/article/details/115233416">https://blog.csdn.net/weixin_43649776/article/details/115233416</a></li><li>使用pandoc将markdown转latex去除\hypertarget的解决方法：<a href="https://blog.csdn.net/qq_43039472/article/details/122422737">https://blog.csdn.net/qq_43039472/article/details/122422737</a></li><li>macOS LaTeX 提示Package fontspec Warning: Font “STSong“ does not contain requested Script “CJK“的原因：<a href="https://blog.csdn.net/HermitSun/article/details/116674418">https://blog.csdn.net/HermitSun/article/details/116674418</a></li><li>MscTeX警告Package fontspec Warning: Font “Songti SC Light“ does not contain requested(fontspec)的解决：<a href="https://blog.csdn.net/qq_41437512/article/details/121313935">https://blog.csdn.net/qq_41437512/article/details/121313935</a></li><li>Mac中使用LaTeX的中文字体出现Package fontspec Error: The font “宋体“ cannot be found.解决方案：<a href="https://blog.csdn.net/qq_41437512/article/details/114054458">https://blog.csdn.net/qq_41437512/article/details/114054458</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 写作 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Markdown </tag>
+            
+            <tag> LaTeX </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>从0搭建Django项目 - 1</title>
       <link href="/2022/03/25/xue-xi-da-jian-django-xiang-mu-1/"/>
       <url>/2022/03/25/xue-xi-da-jian-django-xiang-mu-1/</url>
@@ -49,9 +76,9 @@
             
             <tag> CentOS </tag>
             
-            <tag> CentOs Stream </tag>
-            
             <tag> linux </tag>
+            
+            <tag> CentOs Stream </tag>
             
         </tags>
       
@@ -98,14 +125,99 @@
       
       <categories>
           
-          <category> LaTex </category>
+          <category> 写作 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> LaTex Math </tag>
+            <tag> LaTex </tag>
+            
+            <tag> Math </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【重坑】SQLErrorCodes loaded</title>
+      <link href="/2020/11/06/chong-keng-sqlerrorcodes-loaded/"/>
+      <url>/2020/11/06/chong-keng-sqlerrorcodes-loaded/</url>
+      
+        <content type="html"><![CDATA[<h1 id="情况"><a href="#情况" class="headerlink" title="情况"></a>情况</h1><p>使用mysql 5.6版本<br>报错：异常 SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase]</p><p>通常来讲，这是我们的sql语句写错了（比如mybatis的mapper中的sql语句有错误）</p><p>但奇怪的是，我linux和windows都是同样版本的mysql，跑了同一份.sql文件。在windows平台的mysql下完美运行，而连接linux的mysql数据库就不行！</p><p>所以可能是权限设置问题（一般出现在Linux平台等对权限有要求的地方）</p><p> 这个情况在windows平台下并不常见，因为Windows对权限并没有严格要求。</p><h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>一般是由于root用户对全局host无访问权限。因此只要给root用户添加一个访问权限即可。 </p><h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>就我目前掌握的情况来看，出现这个问题的原因有很多，我遇到的是这两种情况，也是比较常见的。<br>    1.数据库的字段和输入的数据库的数据类型不匹配<br>比如说，一个字段int，你设置的长度是5，但是你输入了一个长度为6的值，就会出现这个错误。<br>     解决方法：</p><pre class="line-numbers language-bash"><code class="language-bash">找到有问题的字段，并加以改正<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>2.权限设置问题（一般出现在Linux平台等对权限有要求的地方）<br> 这个情况在windows平台下并不常见，因为Windows对权限并没有严格要求。<br> 原因：一般是由于root用户对全局host无访问权限。因此只要给root用户添加一个访问权限即可。<br> 解决方案(此方案由网友提出，我使用后并未解决问题，正在尝试其他方法):</p><pre class="line-numbers language-bash"><code class="language-bash">登陆mysql ，执行mysql -u root -pPasswdmysql <span class="token operator">></span>grant all privileges on *.* to root@<span class="token string">"%"</span> identified by <span class="token string">"Passwd"</span><span class="token punctuation">;</span>mysql <span class="token operator">></span>flush privileges<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://cloud.tencent.com/developer/article/1142524">https://cloud.tencent.com/developer/article/1142524</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库 </tag>
+            
+            <tag> sql </tag>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CentOs 安装本地yum仓库（createrepo+nginx实现）</title>
+      <link href="/2020/10/30/centos-an-zhuang-ben-di-yum-cang-ku-createrepo-nginx-shi-xian/"/>
+      <url>/2020/10/30/centos-an-zhuang-ben-di-yum-cang-ku-createrepo-nginx-shi-xian/</url>
+      
+        <content type="html"><![CDATA[<h2 id="0-目的"><a href="#0-目的" class="headerlink" title="0. 目的"></a>0. 目的</h2><p>想要建立私有Yum仓库，方便运维。<br>我感觉搭建好以后，甚至可以当作自己的对象存储oss来用</p><h2 id="1-开始"><a href="#1-开始" class="headerlink" title="1. 开始"></a>1. 开始</h2><p>安装的系统为CentOs6。</p><pre><code>Linux gdei 2.6.32-754.el6.x86_64 #1 SMP Tue Jun 19 21:26:04 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux</code></pre><p>服务器地址为：192.168.219.130（VM虚拟机）<br>先安装nginx，要不然没有网页端服务。不需要网页端的可以跳过。</p><h2 id="2-暂时关闭防火墙"><a href="#2-暂时关闭防火墙" class="headerlink" title="2. 暂时关闭防火墙"></a>2. 暂时关闭防火墙</h2><p>关闭iptables :</p><pre><code>service iptables stop</code></pre><p>关闭selinux:<br>查看SELinux状态：</p><pre><code>/usr/sbin/sestatus -v      ##如果SELinux status参数为enabled即为开启状态getenforce                 ##也可以用这个命令检查</code></pre><p>关闭SELinux：<br>1、临时关闭（不用重启机器）：</p><pre><code>setenforce 0                  ##设置SELinux 成为permissive模式                              ##setenforce 1 设置SELinux 成为enforcing模式</code></pre><p>2、修改配置文件需要重启机器：<br>修改&#x2F;etc&#x2F;selinux&#x2F;config 文件<br>将SELINUX&#x3D;enforcing改为SELINUX&#x3D;disabled<br>重启机器后关闭selinux</p><h2 id="3-安装createrepo"><a href="#3-安装createrepo" class="headerlink" title="3. 安装createrepo"></a>3. 安装createrepo</h2><p>准备软件仓库目录：</p><pre><code>mkdir /home/data -p</code></pre><p>使用yum的只下载不安装的方式进行下载软件(下载啥都行，此处以下载gcc为例，你也可以自己打包rmp然后放到仓库)</p><pre><code>yum install --downloadonly --downloaddir=/home/data gcc</code></pre><p>下载creatrepo：</p><pre><code>yum -y install createrepo</code></pre><p>开始运行服务：</p><pre><code>createrepo /yum/downloade/</code></pre><p>现在，自定义yum仓库已经搭建完成，目前只有gcc这一个包可供下载</p><h2 id="4-更新"><a href="#4-更新" class="headerlink" title="4. 更新"></a>4. 更新</h2><p>更新源数据：如果有新的软件包放入到软件仓库，这里就需要更新元数据。<br>也就是说每次将数据放入这个文件夹下想共享出去，放到这下面以后就要使用下面的命令更新一次。</p><pre><code>createrepo --update /home/data</code></pre><p>至此，搭建完成。</p><h2 id="5-使用Nginx制造网页端查看页面"><a href="#5-使用Nginx制造网页端查看页面" class="headerlink" title="5. 使用Nginx制造网页端查看页面"></a>5. 使用Nginx制造网页端查看页面</h2><p>要安装Nginx之前要安装epel，要不然装不了nginx</p><pre><code>yum install epel-release</code></pre><p>然后安装nginx</p><pre><code>yum install nginx</code></pre><p>开始配置nginx，配置完毕后网页端就能访问了</p><pre><code>cd /etc/nginx/conf.d/</code></pre><p>备份配置文件</p><pre><code>cp default.conf default.conf.bak</code></pre><p>开始修改配置文件</p><pre><code>vi default.conf </code></pre><p>修改成如下的样子</p><pre><code>server &#123;    listen       80;    server_name  192.168.219.130;    root         /home/data;    location / &#123;    autoindex on;    autoindex_exact_size off;    autoindex_localtime on;    autoindex_format html;    charset utf-8,gbk;    root         /home/data;    &#125;    error_page 404 /404.html;        location = /40x.html &#123;    &#125;    error_page 500 502 503 504 /50x.html;        location = /50x.html &#123;    &#125;&#125;</code></pre><h2 id="6-成功"><a href="#6-成功" class="headerlink" title="6. 成功"></a>6. 成功</h2><p>访问192.168.219.130（服务器IP），成功！效果如下：</p><p><img src="https://vskendo-1255590242.cos.ap-guangzhou.myqcloud.com/2022/05/05/060035-e2.png" alt="image-20220505060035049"></p><p>点击文件，可以下载:</p><p><img src="https://vskendo-1255590242.cos.ap-guangzhou.myqcloud.com/2022/05/05/060047-03.png" alt="image-20220505060047071"></p><h2 id="7-使用"><a href="#7-使用" class="headerlink" title="7. 使用"></a>7. 使用</h2><p>需要使用yum的客户端，需编辑配置文件，命令操作如下所示：</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> /etc/yum.repos.d/<span class="token function">cp</span> CentOS-Base.repo CentOS-Base.repo.bakvim CentOS-Base.repo<span class="token punctuation">[</span>base<span class="token punctuation">]</span>                                     //中括号里内容要求唯一，但不要出现特殊字符name<span class="token operator">=</span>A <span class="token function">nice</span> description           //此为描述信息，可以看情况填写baseurl<span class="token operator">=</span>http://192.168.219.130/                    //此项为yum软件仓库位置enabled<span class="token operator">=</span>1                                   //此项为是否开启，1为开启, 0为不开启gpgcheck<span class="token operator">=</span>1                                  //此项为是否检查签名，1为检测, 0为不检测cost<span class="token operator">=</span>1000    <span class="token comment" spellcheck="true"># 默认yum仓库cost为1000, cost越小越优先</span>gpgkey<span class="token operator">=</span>0  //签名认证信息的路径//有些baseurl设置的稍微复杂，比如：//<span class="token variable">$releasever</span>/os/<span class="token variable">$basearch</span>///其中//    <span class="token variable">$releasever</span>    <span class="token comment" spellcheck="true"># 只替换主版本号</span>//    <span class="token variable">$basearch</span> <span class="token comment" spellcheck="true"># 系统基本架构</span>//具体配置请自己根据yum的配置知识来陪<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>运行以下命令生成缓存 ：</p><pre class="line-numbers language-bash"><code class="language-bash">yum clean allyum makecache<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>（因为有备份文件，随时可以换回来，所以不怕翻车）<br>附上阿里云的yum源配置文件下载（如果你是Centos7就将这个6换成7）</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">wget</span> http://mirrors.aliyun.com/repo/Centos-6.repo//用wget下载后，放到/etc/yum.repos.d/文件夹下，并改名为CentOS-Base.repo//再运行上面2个命令重新生成缓存即可。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h2 id="8-参考"><a href="#8-参考" class="headerlink" title="8.参考"></a>8.参考</h2><p>搭建yum私有仓库：<a href="https://www.jianshu.com/p/c7c2dea549b1?open_source=weibo_search">https://www.jianshu.com/p/c7c2dea549b1?open_source=weibo_search</a><br>搭建私有YUM仓库与内网镜像站：<a href="http://www.360doc.com/content/19/0819/08/36367108_855782032.shtml">http://www.360doc.com/content/19/0819/08/36367108_855782032.shtml</a><br>创建私有yum仓库：<a href="https://www.cnblogs.com/zakzhu/p/11632971.html">https://www.cnblogs.com/zakzhu/p/11632971.html</a><br>Linux yum 命令：<a href="https://www.runoob.com/linux/linux-yum.html">https://www.runoob.com/linux/linux-yum.html</a><br>搭建私有yum仓库：<a href="https://www.cnblogs.com/37yan/p/6879287.html">https://www.cnblogs.com/37yan/p/6879287.html</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CentOs </tag>
+            
+            <tag> createrepo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CentOS安装mfs3.0</title>
+      <link href="/2020/10/14/centos-an-zhuang-mfs3-0/"/>
+      <url>/2020/10/14/centos-an-zhuang-mfs3-0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="需求："><a href="#需求：" class="headerlink" title="需求："></a>需求：</h1><p>需要安装一个日志文件系统，于是服务器按要求装了centos6<br>有6块1TB的STAT hdd，还有一个300G的SAS作为系统盘。<br>日志要求使用nfs协议，考虑到维护、拓展等因素，决定搭建mfs，然后在这基础上使用nfs。<br>系统IP为内网IP：210.38.69.12&#x2F;26<br>日志服务器和我的电脑IP段：10.2.100.0&#x2F;19<br>（mfs好处真的多，不仅有web端管理界面，而且后期如果要加硬盘就只需要改改配置文件，维护太方便了）<br>PS：mfs可以当成raid0来用，即软RAID。6块1TB的硬盘通过mfs就变成了1块5TiB的大硬盘了！</p><h2 id="1-下载和查看官方文档"><a href="#1-下载和查看官方文档" class="headerlink" title="1 下载和查看官方文档"></a>1 下载和查看官方文档</h2><p>我是按照它一步步来的，本文可以配合官方文档来食用…<br>提供个官网，以备不时之需：</p><p>如果你是Ubuntu、MACOS系统，我的操作会和你有点不一样，这点可以在官方文档里找到解决方案<br>我会在本文最后列出一些参考网站，希望能对你有帮助。本文只是简单搭建，具体配置和优化还请自行百度。</p><h2 id="2-系统要求"><a href="#2-系统要求" class="headerlink" title="2 系统要求"></a>2 系统要求</h2><p>mfs要求使用FUSE，需要Linux API 7.8或以上，即内核版本号要在2.6.0以上。然后因为有些的Linux可能有bug，所以版本号最好在2.6.24以上。<br>centos7或以上就不需要管了肯定没问题，我刚好是6，所以用<code>uname -a</code>来查看内核版本号<br>我是2.6.32，幸好我支持…<br>其他要求就在文档里了，什么内存不小于多少多少，如何计算你需要多少空间啥的，没啥用我就不列出来了<br>【请在root下操作，请暂时关闭防火墙（centos6为iptables）或添加防火墙放行规则】</p><h2 id="3-一些概念"><a href="#3-一些概念" class="headerlink" title="3 一些概念"></a>3 一些概念</h2><p>我真不是复制黏贴党，简单说说Mfs安装的东西是什么以及有什么用。<br>Master Server（元数据服务器）：就是一个主服务器，用于控制存储服务器们<br>MetaLogger（元数据日志服务器）：备份Master服务器的变化日志文件，当master服务器损坏，这服务器可以恢复文件。【说白了如果不需要这个服务器可以不搭建】<br>Chunk Server（数据存储服务器）：这就是真正存数据的服务器了，里面挂载了大量的硬盘用来存数据，上面说的Master就是用来控制这个服务器的。<br>Client（客户端）： 可以像挂载NFS一样（但其本身不是NFS），挂载MFS文件系统。<br>一台服务器可以同时搭建Master Server+ Metalogger + Chunk Server + Client【究极四合一】</p><p>【根据上面的用途，可以得出结论：一般是搭建mfs的话是使用 一个Master和很多个这种Chunk Server，如果有需要的话还有个MetaLogger。客户端装个Client就完事了】</p><h2 id="4-开搞，安装主服务Master-Server"><a href="#4-开搞，安装主服务Master-Server" class="headerlink" title="4 开搞，安装主服务Master Server"></a>4 开搞，安装主服务Master Server</h2><p>开局先来5条命令<br><code>yum install rpm-build gcc gcc-c++ fuse-devel zlib-devel</code><br><code>useradd -s /sbin/nologin mfs</code><br><code>curl &quot; http://ppa.moosefs.com/RPM -GPG -KEY - MooseFS &quot; &gt; /etc/pki/rpm -gpg/RPM -GPG -KEY -MooseFS</code><br>#centos7的话要将下面的el6改成el7<br> <code>curl &quot; http://ppa.moosefs.com/MooseFS-3-el6.repo &quot; &gt; /etc/yum.repos.d/MooseFS.repo</code><br>更新一下yum<br><code>yum update</code><br>然后<br><code>yum install moosefs-master moosefs-cgi moosefs-cgiserv moosefs-cli</code><br>安装成功之后进入目录<br><code>cd / etc/ mfs</code><br>目录里有 cfg和 cfg.sample文件，通过diff我发现这两种文件是一样的…<br>我建议你先执行以下语句：<br><code>cp mfsmaster.cfg mfsmaster.cfg.bak</code><br><code>cp mfsexports.cfg mfsexports.cfg.bak</code><br>然后再是：<br><code>cp mfsmaster.cfg.sample mfsmaster.cfg</code><br><code>cp mfsexports.cfg.sample mfsexports.cfg</code><br>按照官方的说法，.cfg.sample文件是简单的例子，而.cfg是正在使用的配置文件，那既然这样我们就创建个.bak文件备份一下吧。<br>编辑mfsexports.cfg文件。这个文件是管理权限的，详细的文件意思可以百度或者看文档内的注释。<br>反正直接加上下面这条就好了<br><code>你客户端的网络号/你客户端的掩码 / rw,alldirs,maproot =0</code><br>（注意网络号不等于IP）<br>因为我电脑（win10）和日志服务器（CentOs）都在10.2.100.0&#x2F;19网络中，所以我加的是<br><code>10.2.100.0/19        /    rw,alldirs,maproot=0,password=mfs</code><br>即允许10.2.100.0&#x2F;19中所有主机访问 MFS根目录 可读写、允许挂载任何指定的子目录、映射为root、密码为mfs<br>使用<code>mfsmaster -a start</code>来启动，网友建议启动时都加上<code>-a</code>，具体区别请自行百度。<br>其中，<code>mfsmaster stop</code>是关闭，<code>mfsmaster restart</code>是重启，这些基本知识就不说了。<br>如果没有报错，那么安装就成功了，记得将主服务器设为开机启动<br><code>chkconfig --add moosefs-master</code><br><code>chkconfig moosefs-master on</code>    </p><h2 id="5-安装MFS元数据日志服务器"><a href="#5-安装MFS元数据日志服务器" class="headerlink" title="5 安装MFS元数据日志服务器"></a>5 安装MFS元数据日志服务器</h2><p>我没装，如果你要装可以看看本文最后面的参考资料。这个安装也简单。<br>【元数据日志守护进程是在安装master server 时一同安装的，最小的要求并不比master  本身大，可以被运行在任何机器上（例如任一台chunkserver），但是最好是放置在MooseFS master 的备份机上，备份master  服务器的变化日志文件，文件类型为changelog_ml.*.mfs。因为主要的master server  一旦失效，可能就会将这台metalogger 机器取代而作为master server。】</p><h2 id="6-安装web监视服务"><a href="#6-安装web监视服务" class="headerlink" title="6 安装web监视服务"></a>6 安装web监视服务</h2><p>按照官方文档的说法，只要是个Linux机器都能装这个监视服务，只要装了以后输入Master的ip就可以了。<br>但是官方强烈建议给装了Master Server的机器都装上这个web监视服务<br><code>yum install moosefs-cgi moosefs-cgiserv moosefs-cli</code><br>修改hosts文件 <code>vi /etc/hosts</code>，添加一条规则： <code>这台服务器的IP mfsmaster</code><br>然后就可以启动服务了<br><code>service moosefs-cgiserv start</code><br>web管理的URL是 <code>localhost:9425/mfs.cgi</code> ，其他电脑可以输入URL：<code>服务器IP:9425/mfs.cgi</code>进行访问<br>访问不了？看看防火墙设置！</p><h2 id="7-安装存储服务器Chunk-servers"><a href="#7-安装存储服务器Chunk-servers" class="headerlink" title="7 安装存储服务器Chunk servers"></a>7 安装存储服务器Chunk servers</h2><p>想要安装数据服务器(chunkservers)，这些机器的磁盘上不仅要有适当的剩余空间，还要求操作系统遵循POSIX 标准（如：Linux, FreeBSD, Mac OS X and OpenSolaris）。<br>如果你的Chunk服务器和Master服务器不是同一台，记得安装mfs的依赖<br><code>yum install rpm-build gcc gcc-c++ fuse-devel zlib-devel –y</code><br> <code>useradd -s /sbin/nologin mfs</code><br>然后安装<code>yum install moosefs-chunkserver</code><br>备份一下配置文件。<br><code>cd /etc/mfs</code><br><code>cp mfschunkserver.cfg mfschunkserver.cfg.bak</code><br><code>cp mfshdd.cfg mfshdd.cfg.bak</code><br><code>cp mfschunkserver.cfg.sample mfschunkserver.cfg</code><br><code>cp mfshdd.cfg.sample mfshdd.cfg</code><br>这个时候你在文件mfshdd.cfg中指定要使用哪些硬盘，然后启动服务就搞定了<br>比如假设我要使用sde和sdc两块硬盘，那么久<br><code>chown -R mfs:mfs /mnt/sde</code><br><code>chown -R mfs:mfs /mnt/sdc</code><br>然后在mfshdd.cfg文件中添加2行<br><code>/mnt/sde</code><br><code>/mnt/sdc</code><br>启动服务<br><code>service moosefs-chunkserver start</code><br>加入开机启动项<br><code>chkconfig --add moosefs-chunkserver</code><br><code>chkconfig moosefs-chunkserver on</code><br>安装完成<br>但是我的服务器插了6块1T的硬盘还没挂载…我6块硬盘分别是 sdb sdc sdd sde sdf sdg<br>于是我要先将它们格式化，然后设置成开机自动挂载，然后挂载。<br><code>mkfs -t ext3 /dev/sdb</code><br><code>mkfs -t ext3 /dev/sdc</code><br><code>mkfs -t ext3 /dev/sdd</code><br><code>mkfs -t ext3 /dev/sde</code><br><code>mkfs -t ext3 /dev/sdf</code><br><code>mkfs -t ext3 /dev/sdg</code><br>所以我要用上面的格式化指令先格式化6块盘<br>然后在mnt目录下创建6个目录<br><code>mkdir -p /mnt/sdb</code><br><code>mkdir -p /mnt/sdc</code><br><code>mkdir -p /mnt/sdd</code><br><code>mkdir -p /mnt/sde</code><br><code>mkdir -p /mnt/sdf</code><br><code>mkdir -p /mnt/sdg</code><br>然后挂载我亲爱的STAT盘<br><code>mount /dev/sdb /mnt/sdb/</code><br><code>mount /dev/sdc /mnt/sdc/</code><br><code>mount /dev/sdd /mnt/sdd/</code><br><code>mount /dev/sde /mnt/sde/</code><br><code>mount /dev/sdf /mnt/sdf/</code><br><code>mount /dev/sdg /mnt/sdg/</code><br>更改权限<br><code>chown -R mfs:mfs /mnt/sdb chown -R mfs:mfs /mnt/sdc chown -R mfs:mfs /mnt/sdd chown -R mfs:mfs /mnt/sde chown -R mfs:mfs /mnt/sdf chown -R mfs:mfs /mnt/sdg</code><br>然后还得开机自动挂载，要不然重启一下chunk服务器就找不到磁盘咯<br><code>ll /dev/disk/by-uuid/</code>查找所有硬盘的UUID<br>然后<code>vim /etc/fstab</code>，在最后面加上6行（我UUID就删了哈，不给你们看）<br><code>UUID= /mnt/sdb ext3 defaults 0 0 UUID= /mnt/sdc ext3 defaults 0 0 UUID= /mnt/sdd ext3 defaults 0 0 UUID= /mnt/sde ext3 defaults 0 0 UUID= /mnt/sdf ext3 defaults 0 0 UUID= /mnt/sdg ext3 defaults 0 0</code><br>最后在&#x2F;etc&#x2F;mfs&#x2F;mfshdd.cfg下增加6行<br><code>/mnt/sdb /mnt/sdc /mnt/sdd /mnt/sde /mnt/sdf /mnt/sdg</code><br>启动chunk服务，增加chunk服务开机自动启动，完事。</p><h2 id="8-验证安装结果"><a href="#8-验证安装结果" class="headerlink" title="8 验证安装结果"></a>8 验证安装结果</h2><p>所有服务都搭载在210.38.69.12上，没有问题</p><p><img src="https://vskendo-1255590242.cos.ap-guangzhou.myqcloud.com/2022/05/05/060526-91.png" alt="image-20220505060526805"></p><p>至此，mfs搭建完成</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>MFS官网：<a href="http://www.moosefs.com/">http://www.moosefs.com</a><br>MFS分布式文件系统：<a href="https://blog.51cto.com/13555423/2082796">https://blog.51cto.com/13555423/2082796</a><br>MFS分布式文件系统：<a href="https://cloud.tencent.com/developer/article/1520226">https://cloud.tencent.com/developer/article/1520226</a><br>Linux的企業-分布式文件系統mfs（moosefs）搭建與配置：<a href="https://www.itread01.com/content/1508786402.html">https://www.itread01.com/content/1508786402.html</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CentOS </tag>
+            
+            <tag> mfs </tag>
             
         </tags>
       

@@ -1,0 +1,1012 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="CentOS安装mfs3.0, VsKendo&#39;s Blog">
+    <meta name="description" content="在Linux上安装mfs系统的方法。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>CentOS安装mfs3.0 | VsKendo&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.1.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><link rel="alternate" href="/atom.xml" title="VsKendo's Blog" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">VsKendo&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">VsKendo&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            前人裁树，后人乘凉
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">CentOS安装mfs3.0</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/CentOS/">
+                                <span class="chip bg-color">CentOS</span>
+                            </a>
+                        
+                            <a href="/tags/mfs/">
+                                <span class="chip bg-color">mfs</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
+                                运维
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-10-14
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-05-07
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    8 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="需求："><a href="#需求：" class="headerlink" title="需求："></a>需求：</h1><p>需要安装一个日志文件系统，于是服务器按要求装了centos6<br>有6块1TB的STAT hdd，还有一个300G的SAS作为系统盘。<br>日志要求使用nfs协议，考虑到维护、拓展等因素，决定搭建mfs，然后在这基础上使用nfs。<br>系统IP为内网IP：210.38.69.12&#x2F;26<br>日志服务器和我的电脑IP段：10.2.100.0&#x2F;19<br>（mfs好处真的多，不仅有web端管理界面，而且后期如果要加硬盘就只需要改改配置文件，维护太方便了）<br>PS：mfs可以当成raid0来用，即软RAID。6块1TB的硬盘通过mfs就变成了1块5TiB的大硬盘了！</p>
+<h2 id="1-下载和查看官方文档"><a href="#1-下载和查看官方文档" class="headerlink" title="1 下载和查看官方文档"></a>1 下载和查看官方文档</h2><p>我是按照它一步步来的，本文可以配合官方文档来食用…<br>提供个官网，以备不时之需：</p>
+<p>如果你是Ubuntu、MACOS系统，我的操作会和你有点不一样，这点可以在官方文档里找到解决方案<br>我会在本文最后列出一些参考网站，希望能对你有帮助。本文只是简单搭建，具体配置和优化还请自行百度。</p>
+<h2 id="2-系统要求"><a href="#2-系统要求" class="headerlink" title="2 系统要求"></a>2 系统要求</h2><p>mfs要求使用FUSE，需要Linux API 7.8或以上，即内核版本号要在2.6.0以上。然后因为有些的Linux可能有bug，所以版本号最好在2.6.24以上。<br>centos7或以上就不需要管了肯定没问题，我刚好是6，所以用<code>uname -a</code>来查看内核版本号<br>我是2.6.32，幸好我支持…<br>其他要求就在文档里了，什么内存不小于多少多少，如何计算你需要多少空间啥的，没啥用我就不列出来了<br>【请在root下操作，请暂时关闭防火墙（centos6为iptables）或添加防火墙放行规则】</p>
+<h2 id="3-一些概念"><a href="#3-一些概念" class="headerlink" title="3 一些概念"></a>3 一些概念</h2><p>我真不是复制黏贴党，简单说说Mfs安装的东西是什么以及有什么用。<br>Master Server（元数据服务器）：就是一个主服务器，用于控制存储服务器们<br>MetaLogger（元数据日志服务器）：备份Master服务器的变化日志文件，当master服务器损坏，这服务器可以恢复文件。【说白了如果不需要这个服务器可以不搭建】<br>Chunk Server（数据存储服务器）：这就是真正存数据的服务器了，里面挂载了大量的硬盘用来存数据，上面说的Master就是用来控制这个服务器的。<br>Client（客户端）： 可以像挂载NFS一样（但其本身不是NFS），挂载MFS文件系统。<br>一台服务器可以同时搭建Master Server+ Metalogger + Chunk Server + Client【究极四合一】</p>
+<p>【根据上面的用途，可以得出结论：一般是搭建mfs的话是使用 一个Master和很多个这种Chunk Server，如果有需要的话还有个MetaLogger。客户端装个Client就完事了】</p>
+<h2 id="4-开搞，安装主服务Master-Server"><a href="#4-开搞，安装主服务Master-Server" class="headerlink" title="4 开搞，安装主服务Master Server"></a>4 开搞，安装主服务Master Server</h2><p>开局先来5条命令<br><code>yum install rpm-build gcc gcc-c++ fuse-devel zlib-devel</code><br><code>useradd -s /sbin/nologin mfs</code><br><code>curl &quot; http://ppa.moosefs.com/RPM -GPG -KEY - MooseFS &quot; &gt; /etc/pki/rpm -gpg/RPM -GPG -KEY -MooseFS</code><br>#centos7的话要将下面的el6改成el7<br> <code>curl &quot; http://ppa.moosefs.com/MooseFS-3-el6.repo &quot; &gt; /etc/yum.repos.d/MooseFS.repo</code><br>更新一下yum<br><code>yum update</code><br>然后<br><code>yum install moosefs-master moosefs-cgi moosefs-cgiserv moosefs-cli</code><br>安装成功之后进入目录<br><code>cd / etc/ mfs</code><br>目录里有 cfg和 cfg.sample文件，通过diff我发现这两种文件是一样的…<br>我建议你先执行以下语句：<br><code>cp mfsmaster.cfg mfsmaster.cfg.bak</code><br><code>cp mfsexports.cfg mfsexports.cfg.bak</code><br>然后再是：<br><code>cp mfsmaster.cfg.sample mfsmaster.cfg</code><br><code>cp mfsexports.cfg.sample mfsexports.cfg</code><br>按照官方的说法，.cfg.sample文件是简单的例子，而.cfg是正在使用的配置文件，那既然这样我们就创建个.bak文件备份一下吧。<br>编辑mfsexports.cfg文件。这个文件是管理权限的，详细的文件意思可以百度或者看文档内的注释。<br>反正直接加上下面这条就好了<br><code>你客户端的网络号/你客户端的掩码 / rw,alldirs,maproot =0</code><br>（注意网络号不等于IP）<br>因为我电脑（win10）和日志服务器（CentOs）都在10.2.100.0&#x2F;19网络中，所以我加的是<br><code>10.2.100.0/19        /    rw,alldirs,maproot=0,password=mfs</code><br>即允许10.2.100.0&#x2F;19中所有主机访问 MFS根目录 可读写、允许挂载任何指定的子目录、映射为root、密码为mfs<br>使用<code>mfsmaster -a start</code>来启动，网友建议启动时都加上<code>-a</code>，具体区别请自行百度。<br>其中，<code>mfsmaster stop</code>是关闭，<code>mfsmaster restart</code>是重启，这些基本知识就不说了。<br>如果没有报错，那么安装就成功了，记得将主服务器设为开机启动<br><code>chkconfig --add moosefs-master</code><br><code>chkconfig moosefs-master on</code>    </p>
+<h2 id="5-安装MFS元数据日志服务器"><a href="#5-安装MFS元数据日志服务器" class="headerlink" title="5 安装MFS元数据日志服务器"></a>5 安装MFS元数据日志服务器</h2><p>我没装，如果你要装可以看看本文最后面的参考资料。这个安装也简单。<br>【元数据日志守护进程是在安装master server 时一同安装的，最小的要求并不比master  本身大，可以被运行在任何机器上（例如任一台chunkserver），但是最好是放置在MooseFS master 的备份机上，备份master  服务器的变化日志文件，文件类型为changelog_ml.*.mfs。因为主要的master server  一旦失效，可能就会将这台metalogger 机器取代而作为master server。】</p>
+<h2 id="6-安装web监视服务"><a href="#6-安装web监视服务" class="headerlink" title="6 安装web监视服务"></a>6 安装web监视服务</h2><p>按照官方文档的说法，只要是个Linux机器都能装这个监视服务，只要装了以后输入Master的ip就可以了。<br>但是官方强烈建议给装了Master Server的机器都装上这个web监视服务<br><code>yum install moosefs-cgi moosefs-cgiserv moosefs-cli</code><br>修改hosts文件 <code>vi /etc/hosts</code>，添加一条规则： <code>这台服务器的IP mfsmaster</code><br>然后就可以启动服务了<br><code>service moosefs-cgiserv start</code><br>web管理的URL是 <code>localhost:9425/mfs.cgi</code> ，其他电脑可以输入URL：<code>服务器IP:9425/mfs.cgi</code>进行访问<br>访问不了？看看防火墙设置！</p>
+<h2 id="7-安装存储服务器Chunk-servers"><a href="#7-安装存储服务器Chunk-servers" class="headerlink" title="7 安装存储服务器Chunk servers"></a>7 安装存储服务器Chunk servers</h2><p>想要安装数据服务器(chunkservers)，这些机器的磁盘上不仅要有适当的剩余空间，还要求操作系统遵循POSIX 标准（如：Linux, FreeBSD, Mac OS X and OpenSolaris）。<br>如果你的Chunk服务器和Master服务器不是同一台，记得安装mfs的依赖<br><code>yum install rpm-build gcc gcc-c++ fuse-devel zlib-devel –y</code><br> <code>useradd -s /sbin/nologin mfs</code><br>然后安装<code>yum install moosefs-chunkserver</code><br>备份一下配置文件。<br><code>cd /etc/mfs</code><br><code>cp mfschunkserver.cfg mfschunkserver.cfg.bak</code><br><code>cp mfshdd.cfg mfshdd.cfg.bak</code><br><code>cp mfschunkserver.cfg.sample mfschunkserver.cfg</code><br><code>cp mfshdd.cfg.sample mfshdd.cfg</code><br>这个时候你在文件mfshdd.cfg中指定要使用哪些硬盘，然后启动服务就搞定了<br>比如假设我要使用sde和sdc两块硬盘，那么久<br><code>chown -R mfs:mfs /mnt/sde</code><br><code>chown -R mfs:mfs /mnt/sdc</code><br>然后在mfshdd.cfg文件中添加2行<br><code>/mnt/sde</code><br><code>/mnt/sdc</code><br>启动服务<br><code>service moosefs-chunkserver start</code><br>加入开机启动项<br><code>chkconfig --add moosefs-chunkserver</code><br><code>chkconfig moosefs-chunkserver on</code><br>安装完成<br>但是我的服务器插了6块1T的硬盘还没挂载…我6块硬盘分别是 sdb sdc sdd sde sdf sdg<br>于是我要先将它们格式化，然后设置成开机自动挂载，然后挂载。<br><code>mkfs -t ext3 /dev/sdb</code><br><code>mkfs -t ext3 /dev/sdc</code><br><code>mkfs -t ext3 /dev/sdd</code><br><code>mkfs -t ext3 /dev/sde</code><br><code>mkfs -t ext3 /dev/sdf</code><br><code>mkfs -t ext3 /dev/sdg</code><br>所以我要用上面的格式化指令先格式化6块盘<br>然后在mnt目录下创建6个目录<br><code>mkdir -p /mnt/sdb</code><br><code>mkdir -p /mnt/sdc</code><br><code>mkdir -p /mnt/sdd</code><br><code>mkdir -p /mnt/sde</code><br><code>mkdir -p /mnt/sdf</code><br><code>mkdir -p /mnt/sdg</code><br>然后挂载我亲爱的STAT盘<br><code>mount /dev/sdb /mnt/sdb/</code><br><code>mount /dev/sdc /mnt/sdc/</code><br><code>mount /dev/sdd /mnt/sdd/</code><br><code>mount /dev/sde /mnt/sde/</code><br><code>mount /dev/sdf /mnt/sdf/</code><br><code>mount /dev/sdg /mnt/sdg/</code><br>更改权限<br><code>chown -R mfs:mfs /mnt/sdb chown -R mfs:mfs /mnt/sdc chown -R mfs:mfs /mnt/sdd chown -R mfs:mfs /mnt/sde chown -R mfs:mfs /mnt/sdf chown -R mfs:mfs /mnt/sdg</code><br>然后还得开机自动挂载，要不然重启一下chunk服务器就找不到磁盘咯<br><code>ll /dev/disk/by-uuid/</code>查找所有硬盘的UUID<br>然后<code>vim /etc/fstab</code>，在最后面加上6行（我UUID就删了哈，不给你们看）<br><code>UUID= /mnt/sdb ext3 defaults 0 0 UUID= /mnt/sdc ext3 defaults 0 0 UUID= /mnt/sdd ext3 defaults 0 0 UUID= /mnt/sde ext3 defaults 0 0 UUID= /mnt/sdf ext3 defaults 0 0 UUID= /mnt/sdg ext3 defaults 0 0</code><br>最后在&#x2F;etc&#x2F;mfs&#x2F;mfshdd.cfg下增加6行<br><code>/mnt/sdb /mnt/sdc /mnt/sdd /mnt/sde /mnt/sdf /mnt/sdg</code><br>启动chunk服务，增加chunk服务开机自动启动，完事。</p>
+<h2 id="8-验证安装结果"><a href="#8-验证安装结果" class="headerlink" title="8 验证安装结果"></a>8 验证安装结果</h2><p>所有服务都搭载在210.38.69.12上，没有问题</p>
+<p><img src="https://vskendo-1255590242.cos.ap-guangzhou.myqcloud.com/2022/05/05/060526-91.png" alt="image-20220505060526805"></p>
+<p>至此，mfs搭建完成</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>MFS官网：<a target="_blank" rel="noopener" href="http://www.moosefs.com/">http://www.moosefs.com</a><br>MFS分布式文件系统：<a target="_blank" rel="noopener" href="https://blog.51cto.com/13555423/2082796">https://blog.51cto.com/13555423/2082796</a><br>MFS分布式文件系统：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1520226">https://cloud.tencent.com/developer/article/1520226</a><br>Linux的企業-分布式文件系統mfs（moosefs）搭建與配置：<a target="_blank" rel="noopener" href="https://www.itread01.com/content/1508786402.html">https://www.itread01.com/content/1508786402.html</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">VsKendo</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.vskendo.com/2020/10/14/centos-an-zhuang-mfs3-0/">https://blog.vskendo.com/2020/10/14/centos-an-zhuang-mfs3-0/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">VsKendo</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/CentOS/">
+                                    <span class="chip bg-color">CentOS</span>
+                                </a>
+                            
+                                <a href="/tags/mfs/">
+                                    <span class="chip bg-color">mfs</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/10/30/centos-an-zhuang-ben-di-yum-cang-ku-createrepo-nginx-shi-xian/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="CentOs 安装本地yum仓库（createrepo+nginx实现）">
+                        
+                        <span class="card-title">CentOs 安装本地yum仓库（createrepo+nginx实现）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            LaTeX是一种基于TeX的文档排版系统，成为现在最流行的科技写作——尤其是数学写作的工具之一.
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-30
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
+                                    运维
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CentOs/">
+                        <span class="chip bg-color">CentOs</span>
+                    </a>
+                    
+                    <a href="/tags/createrepo/">
+                        <span class="chip bg-color">createrepo</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/10/14/centos-an-zhuang-mfs3-0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="CentOS安装mfs3.0">
+                        
+                        <span class="card-title">CentOS安装mfs3.0</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            在Linux上安装mfs系统的方法。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
+                                    运维
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CentOS/">
+                        <span class="chip bg-color">CentOS</span>
+                    </a>
+                    
+                    <a href="/tags/mfs/">
+                        <span class="chip bg-color">mfs</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('2'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2022</span>
+            
+            <a href="/about" target="_blank">VsKendo</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">10.7k</span>
+            
+            
+            
+            
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2020112636号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/VsKendo" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:smartcrazylin@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=28860356" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 28860356" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
