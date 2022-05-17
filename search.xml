@@ -4,33 +4,6 @@
   
     
     <entry>
-      <title>使用Markdown+LaTeX编写模板并生成pdf</title>
-      <link href="/2022/05/07/shi-yong-markdown-latex-bian-xie-acm-mo-ban-bing-sheng-cheng-pdf/"/>
-      <url>/2022/05/07/shi-yong-markdown-latex-bian-xie-acm-mo-ban-bing-sheng-cheng-pdf/</url>
-      
-        <content type="html"><![CDATA[<h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>本教程目的是让使用Markdown的人都可以生成理想的pdf文件。如果只是使用各种软件将多个Markdown合并再导出成pdf固然可以，但是这不优雅，且几乎无法自定义。对于一些要求高的（比如要创建自己的ACM比赛模板）的人，需要一种更好的方法。</p><p>在本教程，你可以方便地将你的MD文件（使用优雅的字体）与代码（支持高亮显示）引用到一个LaTex文件中，最后直接将该LaTex文件转化为PDF文件，同时还不用深入学习LaTex。</p><h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>我使用的是2020的M1 MAC，但是Windows、Linux和x86的Mac用户也不用担心，这个教程已经考虑了跨平台的问题，不用担心多平台的困扰。</p><h2 id="所用软件"><a href="#所用软件" class="headerlink" title="所用软件"></a>所用软件</h2><ol><li>Typora——用于编写Markdown的软件</li><li>MacTex——用于编写Latex的软件。其安装后会有几个小软件<ol><li>TeXShop：这是一个 Tex 的前端，是 Tex 的编辑器和预览器。新手可以使用这个来学习。（老手一般都有自己喜欢的编辑器，比如使用VsCode而不是它）</li><li>TeX Live Utility：这个实用工具可以通过网络更新 TeX Live 包，以及配置 Tex 中的页面大小。（说白了就是个包管理器，用于更新软件用的）</li><li>LaTexiT：这是一个简单的 LaTex 图形应用程序，但是一般被当作方程编辑器，用于写数学方程，因为可以很快看到写的公式的样式。（本教程并未使用，但是一些需要经常使用LaTex编写数学公式的人会用到）</li><li>BibDesk：这是一个用于编辑和管理参考书目的工具。（论文、参考文献管理工具，本教程并未使用）</li><li>在“应用程序”里多了一个“Docs and Spell Utilities”，这个是一些介绍文档，有空可以看看。</li></ol></li><li>pandoc——一个转换器，可以把各种格式的文档转换成其他格式，比如将HTML转PDF等（本教程用它来将Markdown文件转换为Tex文件以便让LaTex引用）</li></ol><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ol><li>【LaTeX】新手教程：从入门到日常使用：<a href="https://zhuanlan.zhihu.com/p/456055339">https://zhuanlan.zhihu.com/p/456055339</a></li><li>「MacTex 小笔记」准备篇：<a href="https://blog.csdn.net/qq_33919450/article/details/124444187">https://blog.csdn.net/qq_33919450/article/details/124444187</a></li><li>ACM赛前准备——模板(排版篇)：<a href="https://www.cnblogs.com/palayutm/p/6444833.html#e5ae89e8a385texlive_11">https://www.cnblogs.com/palayutm/p/6444833.html#e5ae89e8a385texlive_11</a></li><li>ACM赛前准备——模板GitHub：<a href="https://github.com/palayutm/ply-template">https://github.com/palayutm/ply-template</a></li><li>Code Highlighting with minted：<a href="https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted">https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted</a></li><li>Multi-file LaTeX projects：<a href="https://www.overleaf.com/learn/latex/Multi-file_LaTeX_projects">https://www.overleaf.com/learn/latex/Multi-file_LaTeX_projects</a></li><li>how to typeset Chinese documents：<a href="https://www.overleaf.com/learn/latex/Chinese">https://www.overleaf.com/learn/latex/Chinese</a></li><li>Pandoc  a universal document converter：<a href="https://pandoc.org/index.html">https://pandoc.org/index.html</a></li><li>pandoc的mac操作指南，小白版：<a href="https://blog.csdn.net/weixin_43649776/article/details/115233416">https://blog.csdn.net/weixin_43649776/article/details/115233416</a></li><li>使用pandoc将markdown转latex去除\hypertarget的解决方法：<a href="https://blog.csdn.net/qq_43039472/article/details/122422737">https://blog.csdn.net/qq_43039472/article/details/122422737</a></li><li>macOS LaTeX 提示Package fontspec Warning: Font “STSong“ does not contain requested Script “CJK“的原因：<a href="https://blog.csdn.net/HermitSun/article/details/116674418">https://blog.csdn.net/HermitSun/article/details/116674418</a></li><li>MscTeX警告Package fontspec Warning: Font “Songti SC Light“ does not contain requested(fontspec)的解决：<a href="https://blog.csdn.net/qq_41437512/article/details/121313935">https://blog.csdn.net/qq_41437512/article/details/121313935</a></li><li>Mac中使用LaTeX的中文字体出现Package fontspec Error: The font “宋体“ cannot be found.解决方案：<a href="https://blog.csdn.net/qq_41437512/article/details/114054458">https://blog.csdn.net/qq_41437512/article/details/114054458</a></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 写作 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Markdown </tag>
-            
-            <tag> LaTeX </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>从0搭建Django项目 - 1</title>
       <link href="/2022/03/25/xue-xi-da-jian-django-xiang-mu-1/"/>
       <url>/2022/03/25/xue-xi-da-jian-django-xiang-mu-1/</url>

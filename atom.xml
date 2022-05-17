@@ -6,7 +6,7 @@
   <link href="https://blog.vskendo.com/atom.xml" rel="self"/>
   
   <link href="https://blog.vskendo.com/"/>
-  <updated>2022-05-07T09:06:06.774Z</updated>
+  <updated>2022-05-04T06:16:42.258Z</updated>
   <id>https://blog.vskendo.com/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>使用Markdown+LaTeX编写模板并生成pdf</title>
-    <link href="https://blog.vskendo.com/2022/05/07/shi-yong-markdown-latex-bian-xie-acm-mo-ban-bing-sheng-cheng-pdf/"/>
-    <id>https://blog.vskendo.com/2022/05/07/shi-yong-markdown-latex-bian-xie-acm-mo-ban-bing-sheng-cheng-pdf/</id>
-    <published>2022-05-06T19:01:01.000Z</published>
-    <updated>2022-05-07T09:06:06.774Z</updated>
-    
-    
-    <summary type="html">许多人写博客都喜欢用Markdown，但是想将多个Markdown文章内容合在一起然后生成pdf却不容易，本教程将讲述如何完成你的pdf编写（多文件引入+代码高亮）。</summary>
-    
-    
-    
-    <category term="写作" scheme="https://blog.vskendo.com/categories/%E5%86%99%E4%BD%9C/"/>
-    
-    
-    <category term="Markdown" scheme="https://blog.vskendo.com/tags/Markdown/"/>
-    
-    <category term="LaTeX" scheme="https://blog.vskendo.com/tags/LaTeX/"/>
-    
-  </entry>
   
   <entry>
     <title>从0搭建Django项目 - 1</title>
