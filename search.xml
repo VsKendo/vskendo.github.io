@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>创建mysql账户并在vscode中使用</title>
+      <link href="/2022/07/04/chuang-jian-mysql-zhang-hu-bing-zai-vscode-zhong-shi-yong/"/>
+      <url>/2022/07/04/chuang-jian-mysql-zhang-hu-bing-zai-vscode-zhong-shi-yong/</url>
+      
+        <content type="html"><![CDATA[<h1 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h1><p>不使用root用户很关键。</p><h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">USER</span> <span class="token string">'username'</span>@'LOCALHOST<span class="token string">' IDENTIFIED BY '</span>password<span class="token string">';GRANT ALL PRIVILEGES ON databaseName.* TO username@localhost ;ALTER USER '</span>username<span class="token string">'@'</span>localhost<span class="token string">' IDENTIFIED WITH mysql_native_password BY '</span>password'<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>将其中的username、password和databaseName变成你需要的值。</p><h1 id="vscode中"><a href="#vscode中" class="headerlink" title="vscode中"></a>vscode中</h1><ol><li>安装2个扩展：<ol><li>MySQL - 作者是 Jun Han</li><li>MySQL Syntax - 作者是Jake Bathman</li></ol></li><li>打开资源管理器，在最下面找到mysql，点击加号</li><li>输入localhost、用户名、密码和端口号，ssl证书可以直接回车不输入</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库 </tag>
+            
+            <tag> sql </tag>
+            
+            <tag> vscode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>从0搭建Django项目 - 1</title>
       <link href="/2022/03/25/xue-xi-da-jian-django-xiang-mu-1/"/>
       <url>/2022/03/25/xue-xi-da-jian-django-xiang-mu-1/</url>

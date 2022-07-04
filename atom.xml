@@ -6,7 +6,7 @@
   <link href="https://blog.vskendo.com/atom.xml" rel="self"/>
   
   <link href="https://blog.vskendo.com/"/>
-  <updated>2022-05-04T06:16:42.258Z</updated>
+  <updated>2022-07-04T12:45:54.440Z</updated>
   <id>https://blog.vskendo.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>创建mysql账户并在vscode中使用</title>
+    <link href="https://blog.vskendo.com/2022/07/04/chuang-jian-mysql-zhang-hu-bing-zai-vscode-zhong-shi-yong/"/>
+    <id>https://blog.vskendo.com/2022/07/04/chuang-jian-mysql-zhang-hu-bing-zai-vscode-zhong-shi-yong/</id>
+    <published>2022-07-04T12:39:57.000Z</published>
+    <updated>2022-07-04T12:45:54.440Z</updated>
+    
+    
+    <summary type="html">在vscode中管理数据库，又不想使用root账户。</summary>
+    
+    
+    
+    <category term="运维" scheme="https://blog.vskendo.com/categories/%E8%BF%90%E7%BB%B4/"/>
+    
+    
+    <category term="数据库" scheme="https://blog.vskendo.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="sql" scheme="https://blog.vskendo.com/tags/sql/"/>
+    
+    <category term="vscode" scheme="https://blog.vskendo.com/tags/vscode/"/>
+    
+  </entry>
   
   <entry>
     <title>从0搭建Django项目 - 1</title>
