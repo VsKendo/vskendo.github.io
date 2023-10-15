@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MAC - 在VsCode中运行和调试C/C++.md, VsKendo&#39;s Blog">
-    <meta name="description" content="在Mac上，使用VsCode作为C/C++的IDE，发现还是有不少坑的。">
+    <meta name="keywords" content="【重坑】SQLErrorCodes loaded, VsKendo&#39;s Blog">
+    <meta name="description" content="解决Linux/Mac连接数据库时出现SQLErrorCodes loaded。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>MAC - 在VsCode中运行和调试C/C++.md | VsKendo&#39;s Blog</title>
+    <title>【重坑】SQLErrorCodes loaded | VsKendo&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -226,12 +226,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">MAC - 在VsCode中运行和调试C/C++.md</h1>
+                    <h1 class="description center-align post-title">【重坑】SQLErrorCodes loaded</h1>
                 </div>
             </div>
         </div>
@@ -347,16 +347,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C-C/">
-                                <span class="chip bg-color">C/C++</span>
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
                             </a>
                         
-                            <a href="/tags/VsCode/">
-                                <span class="chip bg-color">VsCode</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
                             </a>
                         
-                            <a href="/tags/Mac/">
-                                <span class="chip bg-color">Mac</span>
+                            <a href="/tags/sql/">
+                                <span class="chip bg-color">sql</span>
                             </a>
                         
                     </div>
@@ -367,8 +367,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C-C/" class="post-category">
-                                C/C++
+                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
+                                运维
                             </a>
                         
                     </div>
@@ -380,28 +380,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-19
+                    2020-11-06
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-19
+                    2022-05-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    622
+                    456
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -416,88 +416,25 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="配置说明"><a href="#配置说明" class="headerlink" title="配置说明"></a>配置说明</h1><p>使用2020款m1的13.3英寸mbp，内存16GB。</p>
-<h1 id="安装VsCode"><a href="#安装VsCode" class="headerlink" title="安装VsCode"></a>安装VsCode</h1><p>去<a target="_blank" rel="noopener" href="https://code.visualstudio.com/">官网</a> 下载vscode。</p>
-<p>现在vscode已经完美支持m1。</p>
-<h1 id="安装VsCode的插件"><a href="#安装VsCode的插件" class="headerlink" title="安装VsCode的插件"></a>安装VsCode的插件</h1><ul>
-<li>Reload：非必需。右下角多一个Reload标签，点击以后可以一键重启VsCode。</li>
-<li>C&#x2F;C++：用于运行C和C++的程序。这插件会安装gcc，这个gcc也是完美支持m1。</li>
-<li>Code Runner：在右上角多出个箭头，可以一键运行。</li>
-<li>CodeLLDB：用于调试，没有它vscode的断点会断不下来。</li>
-<li>tabnine：非必需。强大的自动补全插件，基于AI。免费版每天可以补全5000次。</li>
-</ul>
-<h1 id="配置插件"><a href="#配置插件" class="headerlink" title="配置插件"></a>配置插件</h1><p>在<code>~/Library/Application Support/Code/User/settings.json</code>中配置<code>Code Runner</code>。</p>
-<p>我们配置它的<code>code-runner.executorMap</code>中的</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token property">"cpp"</span><span class="token operator">:</span> <span class="token string">"cd $dir &amp;&amp; g++ -std=c++11 $fileName -o $fileNameWithoutExt &amp;&amp; $dir$fileNameWithoutExt"</span><span class="token punctuation">,</span>
+                <h1 id="情况"><a href="#情况" class="headerlink" title="情况"></a>情况</h1><p>使用mysql 5.6版本<br>报错：异常 SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase]</p>
+<p>通常来讲，这是我们的sql语句写错了（比如mybatis的mapper中的sql语句有错误）</p>
+<p>但奇怪的是，我linux和windows都是同样版本的mysql，跑了同一份.sql文件。在windows平台的mysql下完美运行，而连接linux的mysql数据库就不行！</p>
+<p>所以可能是权限设置问题（一般出现在Linux平台等对权限有要求的地方）</p>
+<p> 这个情况在windows平台下并不常见，因为Windows对权限并没有严格要求。</p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>一般是由于root用户对全局host无访问权限。因此只要给root用户添加一个访问权限即可。 </p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>就我目前掌握的情况来看，出现这个问题的原因有很多，我遇到的是这两种情况，也是比较常见的。<br>    1.数据库的字段和输入的数据库的数据类型不匹配<br>比如说，一个字段int，你设置的长度是5，但是你输入了一个长度为6的值，就会出现这个错误。<br>     解决方法：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">找到有问题的字段，并加以改正
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>这样code runner才会编译成c++11。要不然一堆feature用不了。现在大大小小比赛都完美支持C++11了，部分大型比赛支持C++14。</p>
-<p>然后在<code>code-runner.executorMap</code>下面，额外增加两行：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token property">"code-runner.saveFileBeforeRun"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-<span class="token property">"code-runner.runInTerminal"</span><span class="token operator">:</span> <span class="token boolean">true</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>第一行会在运行前自动保存文件，不用每次都command+s保存然后再点运行。</p>
-<p>第二行会让程序运行在控制台中，否则cin或者scanf等指令没办法输入。</p>
-<h1 id="运行代码"><a href="#运行代码" class="headerlink" title="运行代码"></a>运行代码</h1><p>写一段代码后点击右上角运行，应该不会有问题。</p>
-<p>vscode会自己拉起控制台，然后你就能看到你代码在vscode中的控制台运行了。</p>
-<h1 id="调试代码"><a href="#调试代码" class="headerlink" title="调试代码"></a>调试代码</h1><p>这部分非常坑，我搞了好久。</p>
-<p>总的来说，我们只需要在当前目录下的.vscode文件夹下新增2个json文件就好了。</p>
-<p>新建tasks.json文件如下</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
-    <span class="token property">"tasks"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-        <span class="token punctuation">{</span>
-            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"cppbuild"</span><span class="token punctuation">,</span>
-            <span class="token property">"label"</span><span class="token operator">:</span> <span class="token string">"C/C++: g++"</span><span class="token punctuation">,</span>
-            <span class="token property">"command"</span><span class="token operator">:</span> <span class="token string">"/usr/bin/g++"</span><span class="token punctuation">,</span>
-            <span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-                <span class="token string">"-g"</span><span class="token punctuation">,</span>
-                <span class="token string">"${file}"</span><span class="token punctuation">,</span>
-                <span class="token string">"-o"</span><span class="token punctuation">,</span>
-                <span class="token string">"${fileDirname}/${fileBasenameNoExtension}"</span>
-            <span class="token punctuation">]</span><span class="token punctuation">,</span>
-            <span class="token property">"options"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-                <span class="token property">"cwd"</span><span class="token operator">:</span> <span class="token string">"${fileDirname}"</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            <span class="token property">"problemMatcher"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-                <span class="token string">"$gcc"</span>
-            <span class="token punctuation">]</span><span class="token punctuation">,</span>
-            <span class="token property">"group"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-                <span class="token property">"kind"</span><span class="token operator">:</span> <span class="token string">"build"</span><span class="token punctuation">,</span>
-                <span class="token property">"isDefault"</span><span class="token operator">:</span> <span class="token boolean">true</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            <span class="token property">"detail"</span><span class="token operator">:</span> <span class="token string">"调试器生成的任务。"</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"2.0.0"</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>新建launch.json文件如下</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
-    <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"0.2.0"</span><span class="token punctuation">,</span>
-    <span class="token property">"configurations"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-        <span class="token punctuation">{</span>
-            <span class="token property">"preLaunchTask"</span><span class="token operator">:</span> <span class="token string">"C/C++: g++"</span><span class="token punctuation">,</span>
-            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"lldb"</span><span class="token punctuation">,</span>
-            <span class="token property">"request"</span><span class="token operator">:</span> <span class="token string">"launch"</span><span class="token punctuation">,</span>
-            <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Debug"</span><span class="token punctuation">,</span>
-            <span class="token property">"program"</span><span class="token operator">:</span> <span class="token string">"${fileDirname}/${fileBasenameNoExtension}"</span><span class="token punctuation">,</span>
-            <span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-            <span class="token property">"cwd"</span><span class="token operator">:</span> <span class="token string">"${workspaceFolder}"</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">]</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="开始调试"><a href="#开始调试" class="headerlink" title="开始调试"></a>开始调试</h1><p>在你要调试的位置打上断点。</p>
-<p>3种方法来调试。</p>
-<ol>
-<li>快捷键：shift+command+f11</li>
-<li>找到上方的Run，选择Start Debugging</li>
-<li>在左边找到Run and Debug选项卡，点进去。可以看到里面有一个绿色的小箭头，点击，也是调试。</li>
-</ol>
-<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ol>
-<li>MAC+VS Code+C&#x2F;C++调试配置：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37747262/article/details/81151037">https://blog.csdn.net/qq_37747262/article/details/81151037</a></li>
-<li>解决Mac上VSCdoe断点失效问题：<a target="_blank" rel="noopener" href="https://blog.csdn.net/fujz123/article/details/104426121">https://blog.csdn.net/fujz123/article/details/104426121</a></li>
-<li>vscode的 code-runner插件运行前保存：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/yansc/p/13895314.html">https://www.cnblogs.com/yansc/p/13895314.html</a></li>
-</ol>
+<p>2.权限设置问题（一般出现在Linux平台等对权限有要求的地方）<br> 这个情况在windows平台下并不常见，因为Windows对权限并没有严格要求。<br> 原因：一般是由于root用户对全局host无访问权限。因此只要给root用户添加一个访问权限即可。<br> 解决方案(此方案由网友提出，我使用后并未解决问题，正在尝试其他方法):</p>
+<pre class="line-numbers language-bash"><code class="language-bash">登陆mysql ，执行
+
+mysql -u root -pPasswd
+
+mysql <span class="token operator">></span>grant all privileges on *.* to root@<span class="token string">"%"</span> identified by <span class="token string">"Passwd"</span><span class="token punctuation">;</span>
+
+mysql <span class="token operator">></span>flush privileges<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1142524">https://cloud.tencent.com/developer/article/1142524</a></p>
 
                 
             </div>
@@ -524,7 +461,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.vskendo.com/2022/03/19/mac-zai-vs-code-zhong-yun-xing-he-diao-shi-c-c-md/">https://blog.vskendo.com/2022/03/19/mac-zai-vs-code-zhong-yun-xing-he-diao-shi-c-c-md/</a>
+                    <a href="https://blog.vskendo.com/2020/11/05/chong-keng-sqlerrorcodes-loaded/">https://blog.vskendo.com/2020/11/05/chong-keng-sqlerrorcodes-loaded/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -562,16 +499,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/C-C/">
-                                    <span class="chip bg-color">C/C++</span>
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
                                 </a>
                             
-                                <a href="/tags/VsCode/">
-                                    <span class="chip bg-color">VsCode</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
                                 </a>
                             
-                                <a href="/tags/Mac/">
-                                    <span class="chip bg-color">Mac</span>
+                                <a href="/tags/sql/">
+                                    <span class="chip bg-color">sql</span>
                                 </a>
                             
                         </div>
@@ -623,63 +560,6 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/03/19/centos8-zhuan-yi-dao-centos-stream-shi-cuo-wu/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="CentOS升级到CentOS Stream">
-                        
-                        <span class="card-title">CentOS升级到CentOS Stream</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            从CentOS升级到CentOS Stream的方法以及错误解决方案
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-19
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
-                                    运维
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/CentOS/">
-                        <span class="chip bg-color">CentOS</span>
-                    </a>
-                    
-                    <a href="/tags/CentOs-Stream/">
-                        <span class="chip bg-color">CentOs Stream</span>
-                    </a>
-                    
-                    <a href="/tags/linux/">
-                        <span class="chip bg-color">linux</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/2022/03/19/latex-cong-ru-men-dao-jing-tong/">
                     <div class="card-image">
                         
@@ -696,9 +576,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-19
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-19
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -720,6 +600,59 @@
                     
                     <a href="/tags/Math/">
                         <span class="chip bg-color">Math</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/10/30/centos-an-zhuang-ben-di-yum-cang-ku-createrepo-nginx-shi-xian/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="CentOs 安装本地yum仓库（createrepo+nginx实现）">
+                        
+                        <span class="card-title">CentOs 安装本地yum仓库（createrepo+nginx实现）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            LaTeX是一种基于TeX的文档排版系统，成为现在最流行的科技写作——尤其是数学写作的工具之一.
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
+                                    运维
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CentOs/">
+                        <span class="chip bg-color">CentOs</span>
+                    </a>
+                    
+                    <a href="/tags/createrepo/">
+                        <span class="chip bg-color">createrepo</span>
                     </a>
                     
                 </div>

@@ -6,7 +6,7 @@
   <link href="https://blog.vskendo.com/atom.xml" rel="self"/>
   
   <link href="https://blog.vskendo.com/"/>
-  <updated>2022-07-04T12:45:54.440Z</updated>
+  <updated>2023-10-15T16:51:48.615Z</updated>
   <id>https://blog.vskendo.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Cpp使用pair或tuple返回多个值</title>
+    <link href="https://blog.vskendo.com/2023/10/15/c/"/>
+    <id>https://blog.vskendo.com/2023/10/15/c/</id>
+    <published>2023-10-15T04:37:12.000Z</published>
+    <updated>2023-10-15T16:51:48.615Z</updated>
+    
+    
+    <summary type="html">使用C++11标准的方法完成类似python返回多值的功能。</summary>
+    
+    
+    
+    <category term="C/C++" scheme="https://blog.vskendo.com/categories/C-C/"/>
+    
+    
+    <category term="C/C++" scheme="https://blog.vskendo.com/tags/C-C/"/>
+    
+    <category term="pair" scheme="https://blog.vskendo.com/tags/pair/"/>
+    
+    <category term="tuple" scheme="https://blog.vskendo.com/tags/tuple/"/>
+    
+  </entry>
   
   <entry>
     <title>创建mysql账户并在vscode中使用</title>
@@ -41,8 +64,8 @@
   
   <entry>
     <title>从0搭建Django项目 - 1</title>
-    <link href="https://blog.vskendo.com/2022/03/25/xue-xi-da-jian-django-xiang-mu-1/"/>
-    <id>https://blog.vskendo.com/2022/03/25/xue-xi-da-jian-django-xiang-mu-1/</id>
+    <link href="https://blog.vskendo.com/2022/03/24/xue-xi-da-jian-django-xiang-mu-1/"/>
+    <id>https://blog.vskendo.com/2022/03/24/xue-xi-da-jian-django-xiang-mu-1/</id>
     <published>2022-03-25T00:01:59.000Z</published>
     <updated>2022-05-04T06:16:42.258Z</updated>
     
@@ -98,9 +121,9 @@
     <category term="C/C++" scheme="https://blog.vskendo.com/categories/C-C/"/>
     
     
-    <category term="VsCode" scheme="https://blog.vskendo.com/tags/VsCode/"/>
-    
     <category term="C/C++" scheme="https://blog.vskendo.com/tags/C-C/"/>
+    
+    <category term="VsCode" scheme="https://blog.vskendo.com/tags/VsCode/"/>
     
     <category term="Mac" scheme="https://blog.vskendo.com/tags/Mac/"/>
     
@@ -111,7 +134,7 @@
     <link href="https://blog.vskendo.com/2022/03/19/latex-cong-ru-men-dao-jing-tong/"/>
     <id>https://blog.vskendo.com/2022/03/19/latex-cong-ru-men-dao-jing-tong/</id>
     <published>2022-03-19T09:03:16.000Z</published>
-    <updated>2022-05-06T19:02:41.315Z</updated>
+    <updated>2023-10-15T16:39:38.492Z</updated>
     
     
     <summary type="html">LaTeX是一种基于TeX的文档排版系统，成为现在最流行的科技写作——尤其是数学写作的工具之一.</summary>
@@ -129,8 +152,8 @@
   
   <entry>
     <title>【重坑】SQLErrorCodes loaded</title>
-    <link href="https://blog.vskendo.com/2020/11/06/chong-keng-sqlerrorcodes-loaded/"/>
-    <id>https://blog.vskendo.com/2020/11/06/chong-keng-sqlerrorcodes-loaded/</id>
+    <link href="https://blog.vskendo.com/2020/11/05/chong-keng-sqlerrorcodes-loaded/"/>
+    <id>https://blog.vskendo.com/2020/11/05/chong-keng-sqlerrorcodes-loaded/</id>
     <published>2020-11-05T21:46:58.000Z</published>
     <updated>2022-05-07T08:49:31.283Z</updated>
     
