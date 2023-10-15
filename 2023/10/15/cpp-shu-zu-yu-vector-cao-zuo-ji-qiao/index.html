@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="【重坑】SQLErrorCodes loaded, VsKendo&#39;s Blog">
-    <meta name="description" content="解决Linux/Mac连接数据库时出现SQLErrorCodes loaded。">
+    <meta name="keywords" content="Cpp 数组与vector操作技巧, VsKendo&#39;s Blog">
+    <meta name="description" content="快速创建数组，包括使用容器和普通数组的方式。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>【重坑】SQLErrorCodes loaded | VsKendo&#39;s Blog</title>
+    <title>Cpp 数组与vector操作技巧 | VsKendo&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -226,12 +226,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">【重坑】SQLErrorCodes loaded</h1>
+                    <h1 class="description center-align post-title">Cpp 数组与vector操作技巧</h1>
                 </div>
             </div>
         </div>
@@ -347,16 +347,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/linux/">
-                                <span class="chip bg-color">linux</span>
+                            <a href="/tags/C-C/">
+                                <span class="chip bg-color">C/C++</span>
                             </a>
                         
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                <span class="chip bg-color">数据库</span>
-                            </a>
-                        
-                            <a href="/tags/sql/">
-                                <span class="chip bg-color">sql</span>
+                            <a href="/tags/vector/">
+                                <span class="chip bg-color">vector</span>
                             </a>
                         
                     </div>
@@ -367,8 +363,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
-                                运维
+                            <a href="/categories/C-C/" class="post-category">
+                                C/C++
                             </a>
                         
                     </div>
@@ -380,21 +376,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-06
+                    2023-10-15
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-07
+                    2023-10-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    456
+                    205
                 </div>
                 
 
@@ -416,25 +412,47 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="情况"><a href="#情况" class="headerlink" title="情况"></a>情况</h1><p>使用mysql 5.6版本<br>报错：异常 SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase]</p>
-<p>通常来讲，这是我们的sql语句写错了（比如mybatis的mapper中的sql语句有错误）</p>
-<p>但奇怪的是，我linux和windows都是同样版本的mysql，跑了同一份.sql文件。在windows平台的mysql下完美运行，而连接linux的mysql数据库就不行！</p>
-<p>所以可能是权限设置问题（一般出现在Linux平台等对权限有要求的地方）</p>
-<p> 这个情况在windows平台下并不常见，因为Windows对权限并没有严格要求。</p>
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>一般是由于root用户对全局host无访问权限。因此只要给root用户添加一个访问权限即可。 </p>
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>就我目前掌握的情况来看，出现这个问题的原因有很多，我遇到的是这两种情况，也是比较常见的。<br>    1.数据库的字段和输入的数据库的数据类型不匹配<br>比如说，一个字段int，你设置的长度是5，但是你输入了一个长度为6的值，就会出现这个错误。<br>     解决方法：</p>
-<pre class="line-numbers language-bash"><code class="language-bash">找到有问题的字段，并加以改正
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>2.权限设置问题（一般出现在Linux平台等对权限有要求的地方）<br> 这个情况在windows平台下并不常见，因为Windows对权限并没有严格要求。<br> 原因：一般是由于root用户对全局host无访问权限。因此只要给root用户添加一个访问权限即可。<br> 解决方案(此方案由网友提出，我使用后并未解决问题，正在尝试其他方法):</p>
-<pre class="line-numbers language-bash"><code class="language-bash">登陆mysql ，执行
-
-mysql -u root -pPasswd
-
-mysql <span class="token operator">></span>grant all privileges on *.* to root@<span class="token string">"%"</span> identified by <span class="token string">"Passwd"</span><span class="token punctuation">;</span>
-
-mysql <span class="token operator">></span>flush privileges<span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1142524">https://cloud.tencent.com/developer/article/1142524</a></p>
+                <h1 id="memset填充问题"><a href="#memset填充问题" class="headerlink" title="memset填充问题"></a>memset填充问题</h1><p>我们知道，使用 <code>memset()</code>只能将整数数组填充0和-1，为了将其填充为我们想要的值，可以使用<code>fill</code>初始化而非 <code>memset()</code>。</p>
+<pre class="line-numbers language-c++"><code class="language-c++">int ary[10];
+memset(ary,-2,sizeof ary); // fail
+fill(ary, ary + 10, -2); // ok
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>这样，即使要填充我们想要的值是自定义类也无所谓。</p>
+<pre class="line-numbers language-c++"><code class="language-c++">class T
+{
+  public:
+    int a;
+    int b;
+    int c;
+    T(){};
+    T(int a, int b) : a(a), b(b)
+    {
+        c = a + b;
+    };
+};
+T ts[3];
+fill(ts, ts + 3, T(1, 3)); // it works
+vector<T> vt(3, T(1, 2)); // ok
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>而使用<code>vector</code>则更为方便，直接在构造函数中填充3个T对象。</p>
+<h1 id="非容器对象使用-max-element"><a href="#非容器对象使用-max-element" class="headerlink" title="非容器对象使用 max_element"></a>非容器对象使用 max_element</h1><p>容器类对象可以使用 <code>max_element</code>方法找到容器中的最大值，如：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">vector<int> v{1, 9, 5, 4};
+auto iter = max_element(v.begin(), v.end()); // iterator<vector<int>>
+cout << *iter << endl; // value of the max element
+cout<< iter - v.begin()<<endl;// index of the max element
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>而非容器对象没有迭代器，所以会返回地址。这里上下两块的代码运行结果完全一致。</p>
+<pre class="line-numbers language-c++"><code class="language-c++">int v[] = {1, 9, 5, 4};
+auto iter = max_element(v, v + 4); // address of the max element
+cout << *iter << endl; // value of the max element
+cout << iter - v[0] << endl; // index of the max element
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="获得数组长度"><a href="#获得数组长度" class="headerlink" title="获得数组长度"></a>获得数组长度</h1><p>容器类对象提供 <code>size()和length()</code>函数都表示存储了几个对象，而普通数组没有。此时可使用</p>
+<pre class="line-numbers language-c++"><code class="language-c++">#define arySize(arr) sizeof(arr) / sizeof(arr[0])
+int v[] = {1, 9, 5, 4};
+cout<< arySize(v) << endl;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>第一行的宏定义来获取数组长度，类似于 python 的 <code>len()</code>函数。</p>
 
                 
             </div>
@@ -461,7 +479,7 @@ mysql <span class="token operator">></span>flush privileges<span class="token pu
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.vskendo.com/2020/11/05/chong-keng-sqlerrorcodes-loaded/">https://blog.vskendo.com/2020/11/05/chong-keng-sqlerrorcodes-loaded/</a>
+                    <a href="https://blog.vskendo.com/2023/10/15/cpp-shu-zu-yu-vector-cao-zuo-ji-qiao/">https://blog.vskendo.com/2023/10/15/cpp-shu-zu-yu-vector-cao-zuo-ji-qiao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -499,16 +517,12 @@ mysql <span class="token operator">></span>flush privileges<span class="token pu
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/linux/">
-                                    <span class="chip bg-color">linux</span>
+                                <a href="/tags/C-C/">
+                                    <span class="chip bg-color">C/C++</span>
                                 </a>
                             
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                    <span class="chip bg-color">数据库</span>
-                                </a>
-                            
-                                <a href="/tags/sql/">
-                                    <span class="chip bg-color">sql</span>
+                                <a href="/tags/vector/">
+                                    <span class="chip bg-color">vector</span>
                                 </a>
                             
                         </div>
@@ -556,50 +570,52 @@ mysql <span class="token operator">></span>flush privileges<span class="token pu
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/03/19/latex-cong-ru-men-dao-jing-tong/">
+                <a href="/2023/10/15/cpp-shu-zu-yu-vector-cao-zuo-ji-qiao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="LaTex从入门到精通">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Cpp 数组与vector操作技巧">
                         
-                        <span class="card-title">LaTex从入门到精通</span>
+                        <span class="card-title">Cpp 数组与vector操作技巧</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            LaTeX是一种基于TeX的文档排版系统，成为现在最流行的科技写作——尤其是数学写作的工具之一.
+                            快速创建数组，包括使用容器和普通数组的方式。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%86%99%E4%BD%9C/" class="post-category">
-                                    写作
+                            <a href="/categories/C-C/" class="post-category">
+                                    C/C++
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/LaTex/">
-                        <span class="chip bg-color">LaTex</span>
+                    <a href="/tags/C-C/">
+                        <span class="chip bg-color">C/C++</span>
                     </a>
                     
-                    <a href="/tags/Math/">
-                        <span class="chip bg-color">Math</span>
+                    <a href="/tags/vector/">
+                        <span class="chip bg-color">vector</span>
                     </a>
                     
                 </div>
@@ -613,31 +629,31 @@ mysql <span class="token operator">></span>flush privileges<span class="token pu
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/10/30/centos-an-zhuang-ben-di-yum-cang-ku-createrepo-nginx-shi-xian/">
+                <a href="/2023/10/15/cpp-shi-yong-pair-huo-tuple-fan-hui-duo-ge-zhi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="CentOs 安装本地yum仓库（createrepo+nginx实现）">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Cpp使用pair或tuple返回多个值">
                         
-                        <span class="card-title">CentOs 安装本地yum仓库（createrepo+nginx实现）</span>
+                        <span class="card-title">Cpp使用pair或tuple返回多个值</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            LaTeX是一种基于TeX的文档排版系统，成为现在最流行的科技写作——尤其是数学写作的工具之一.
+                            使用C++时使用tuple返回多个值的使用示例。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
-                                    运维
+                            <a href="/categories/C-C/" class="post-category">
+                                    C/C++
                                 </a>
                             
                             
@@ -647,12 +663,16 @@ mysql <span class="token operator">></span>flush privileges<span class="token pu
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CentOs/">
-                        <span class="chip bg-color">CentOs</span>
+                    <a href="/tags/C-C/">
+                        <span class="chip bg-color">C/C++</span>
                     </a>
                     
-                    <a href="/tags/createrepo/">
-                        <span class="chip bg-color">createrepo</span>
+                    <a href="/tags/pair/">
+                        <span class="chip bg-color">pair</span>
+                    </a>
+                    
+                    <a href="/tags/tuple/">
+                        <span class="chip bg-color">tuple</span>
                     </a>
                     
                 </div>

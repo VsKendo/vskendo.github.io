@@ -4,9 +4,36 @@
   
     
     <entry>
+      <title>Cpp 数组与vector操作技巧</title>
+      <link href="/2023/10/15/cpp-shu-zu-yu-vector-cao-zuo-ji-qiao/"/>
+      <url>/2023/10/15/cpp-shu-zu-yu-vector-cao-zuo-ji-qiao/</url>
+      
+        <content type="html"><![CDATA[<h1 id="memset填充问题"><a href="#memset填充问题" class="headerlink" title="memset填充问题"></a>memset填充问题</h1><p>我们知道，使用 <code>memset()</code>只能将整数数组填充0和-1，为了将其填充为我们想要的值，可以使用<code>fill</code>初始化而非 <code>memset()</code>。</p><pre class="line-numbers language-c++"><code class="language-c++">int ary[10];memset(ary,-2,sizeof ary); // failfill(ary, ary + 10, -2); // ok<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>这样，即使要填充我们想要的值是自定义类也无所谓。</p><pre class="line-numbers language-c++"><code class="language-c++">class T{  public:    int a;    int b;    int c;    T(){};    T(int a, int b) : a(a), b(b)    {        c = a + b;    };};T ts[3];fill(ts, ts + 3, T(1, 3)); // it worksvector<T> vt(3, T(1, 2)); // ok<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>而使用<code>vector</code>则更为方便，直接在构造函数中填充3个T对象。</p><h1 id="非容器对象使用-max-element"><a href="#非容器对象使用-max-element" class="headerlink" title="非容器对象使用 max_element"></a>非容器对象使用 max_element</h1><p>容器类对象可以使用 <code>max_element</code>方法找到容器中的最大值，如：</p><pre class="line-numbers language-c++"><code class="language-c++">vector<int> v{1, 9, 5, 4};auto iter = max_element(v.begin(), v.end()); // iterator<vector<int>>cout << *iter << endl; // value of the max elementcout<< iter - v.begin()<<endl;// index of the max element<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>而非容器对象没有迭代器，所以会返回地址。这里上下两块的代码运行结果完全一致。</p><pre class="line-numbers language-c++"><code class="language-c++">int v[] = {1, 9, 5, 4};auto iter = max_element(v, v + 4); // address of the max elementcout << *iter << endl; // value of the max elementcout << iter - v[0] << endl; // index of the max element<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h1 id="获得数组长度"><a href="#获得数组长度" class="headerlink" title="获得数组长度"></a>获得数组长度</h1><p>容器类对象提供 <code>size()和length()</code>函数都表示存储了几个对象，而普通数组没有。此时可使用</p><pre class="line-numbers language-c++"><code class="language-c++">#define arySize(arr) sizeof(arr) / sizeof(arr[0])int v[] = {1, 9, 5, 4};cout<< arySize(v) << endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>第一行的宏定义来获取数组长度，类似于 python 的 <code>len()</code>函数。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> C/C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C/C++ </tag>
+            
+            <tag> vector </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Cpp使用pair或tuple返回多个值</title>
-      <link href="/2023/10/15/c/"/>
-      <url>/2023/10/15/c/</url>
+      <link href="/2023/10/15/cpp-shi-yong-pair-huo-tuple-fan-hui-duo-ge-zhi/"/>
+      <url>/2023/10/15/cpp-shi-yong-pair-huo-tuple-fan-hui-duo-ge-zhi/</url>
       
         <content type="html"><![CDATA[<h1 id="解决的问题"><a href="#解决的问题" class="headerlink" title="解决的问题"></a>解决的问题</h1><p>函数接受3个参数，并将它们由大到小排序。</p><pre class="line-numbers language-c++"><code class="language-c++">tuple<int, int, int> func(int a, int b, int c){    vector<int> ary{a, b, c};#define rall(v) v.rbegin(), v.rend()    sort(rall(ary));    return make_tuple(ary[0], ary[1], ary[2]);}int main(int argc, char *argv[]){    int a, b, c;    auto res1 = func(1, 2, 3);    tie(a, b, c) = res1;    cout << a << b << c << endl;    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>结果输出321.</p><h1 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h1><p><code>tuple&lt;&gt;</code>可以理解为一个包，可以对多个值进行打包。而这个“包”本身只是一个变量，这样就能达成“C++函数只能返回一个变量”的条件，同时满足“返回了多个值”。</p><p>上述例子中，函数<code>func()</code>返回了一个tuple变量（通过使用<code>make_tuple()</code>函数生成的）。这样调用方就能接收一个变量。</p><p>但是这个变量不能直接使用，需要使用<code>std::tie()</code>函数来解包才能使用。</p><p>上述13与14行可以改为</p><pre class="line-numbers language-c++"><code class="language-c++">tie(std::ignore, std::ignore, c) = res1;cout << a << endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>从而只取最小值</p><h1 id="其他听闻"><a href="#其他听闻" class="headerlink" title="其他听闻"></a>其他听闻</h1><p><code>tuple</code> 即元组，可以理解为pair的扩展，可以用来将不同类型的元素存放在一起，常用于函数的多返回值。在c++ 11标准库中，加入了std::tie，在c++ 14中改进，方便使用。[1]</p><p>pair只能把2个数据打包，而tuple可以打包更多的数据，虽然超过了9个时，其方式就比较搞笑了。[2]</p><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ol><li><a href="https://www.cnblogs.com/RioTian/p/14076214.html">https://www.cnblogs.com/RioTian/p/14076214.html</a></li><li><a href="https://blog.csdn.net/whereismatrix/article/details/125071222">https://blog.csdn.net/whereismatrix/article/details/125071222</a></li></ol>]]></content>
       
