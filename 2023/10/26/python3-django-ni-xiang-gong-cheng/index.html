@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Cpp使用pair或tuple返回多个值, VsKendo&#39;s Blog">
-    <meta name="description" content="使用C++时使用tuple返回多个值的使用示例。">
+    <meta name="keywords" content="从0搭建Django项目 - 2. Django逆向工程, VsKendo&#39;s Blog">
+    <meta name="description" content="使用Django自带的逆向工程，完成类到数据库自动建表。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Cpp使用pair或tuple返回多个值 | VsKendo&#39;s Blog</title>
+    <title>从0搭建Django项目 - 2. Django逆向工程 | VsKendo&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -226,12 +226,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Cpp使用pair或tuple返回多个值</h1>
+                    <h1 class="description center-align post-title">从0搭建Django项目 - 2. Django逆向工程</h1>
                 </div>
             </div>
         </div>
@@ -347,16 +347,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C-C/">
-                                <span class="chip bg-color">C/C++</span>
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
                             </a>
                         
-                            <a href="/tags/pair/">
-                                <span class="chip bg-color">pair</span>
+                            <a href="/tags/Django/">
+                                <span class="chip bg-color">Django</span>
                             </a>
                         
-                            <a href="/tags/tuple/">
-                                <span class="chip bg-color">tuple</span>
+                            <a href="/tags/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/">
+                                <span class="chip bg-color">逆向工程</span>
                             </a>
                         
                     </div>
@@ -367,8 +367,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C-C/" class="post-category">
-                                C/C++
+                            <a href="/categories/python/" class="post-category">
+                                python
                             </a>
                         
                     </div>
@@ -380,7 +380,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-10-15
+                    2023-10-27
                 </div>
                 
 
@@ -394,14 +394,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    82
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    7 分
                 </div>
                 
 
@@ -416,38 +416,145 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="解决的问题"><a href="#解决的问题" class="headerlink" title="解决的问题"></a>解决的问题</h1><p>函数接受3个参数，并将它们由大到小排序。</p>
-<pre class="line-numbers language-c++"><code class="language-c++">tuple<int, int, int> func(int a, int b, int c)
-{
-    vector<int> ary{a, b, c};
-#define rall(v) v.rbegin(), v.rend()
-    sort(rall(ary));
-    return make_tuple(ary[0], ary[1], ary[2]);
-}
+                <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>最近重新研究了Django，发现也没想象中那么简单，也没那么好用。</p>
+<p>我们会编写一个类，然后希望数据库也对应生成这个表。而逆向工程就是自动化这个步骤。</p>
+<p>由于现在用的都是python3，所以接下来的所有命令，可能要将<code>python</code>改为<code>python3</code>.</p>
+<h1 id="Django项目逻辑"><a href="#Django项目逻辑" class="headerlink" title="Django项目逻辑"></a>Django项目逻辑</h1><p>在新建项目后，是没有app的，项目里一开始只有django的管理端。此时我们还不能写任何的业务逻辑。</p>
+<h2 id="目录介绍"><a href="#目录介绍" class="headerlink" title="目录介绍"></a>目录介绍</h2><p>这个管理端的文件夹的名字与你新建Django项目时的一致。比如你使用<code>django-admin startproject mysite</code>新建项目，此时你的项目名称就是mysite。目录如下：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">mysite/
+    manage.py
+    mysite/
+        __init__.py
+        settings.py
+        urls.py
+        asgi.py
+        wsgi.py
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>你的文件将存在第一行的<code>mysite</code>目录下，而<code>manage.py</code>就是管理这个项目的入口。项目的具体设置（比如配置文件）就在<code>mysite/mysite</code>下，这个目录就是我们说的管理端。此时可以使用<code>python manage.py runserver</code>来运行Django.</p>
+<h2 id="新建app"><a href="#新建app" class="headerlink" title="新建app"></a>新建app</h2><p>使用<code>python manager.py startapp myappname</code>来新建一个叫<code>myappname</code>的应用。因为Django使用的不是MVC模型，所以一个这样创建的app就是一个Service，这有点类似于微服务。比如用<code>python manager.py startapp account</code>来管理登录，而同时用<code>python manager.py startapp payment</code> 创建一个app来管理支付。</p>
+<h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><p>终于到逆向工程的步骤了。总体步骤是：</p>
+<ol>
+<li>新建一个app。</li>
+<li>在app的<code>models.py</code>中编写要被逆向的类。</li>
+<li>使用下面的步骤完成逆向工程。</li>
+</ol>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>开始前，默认已经完成了上述的流程2：在app的<code>models.py</code>中编写要被逆向的类。</p>
+<ol>
+<li><p>和上面介绍的一样，我在Django中新建一个app叫<code>myappF23</code>。</p>
+</li>
+<li><p>在Django的<code>mysite/settings.py</code>中</p>
+<pre class="line-numbers language-python"><code class="language-python">INSTALLED_APPS <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">'django.contrib.admin'</span><span class="token punctuation">,</span>
+    <span class="token string">'django.contrib.auth'</span><span class="token punctuation">,</span>
+    <span class="token string">'django.contrib.contenttypes'</span><span class="token punctuation">,</span>
+    <span class="token string">'django.contrib.sessions'</span><span class="token punctuation">,</span>
+    <span class="token string">'django.contrib.messages'</span><span class="token punctuation">,</span>
+    <span class="token string">'django.contrib.staticfiles'</span><span class="token punctuation">,</span>
+    <span class="token string">'myappF23.apps.Myappf23Config'</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在第8行将告诉Django：myappF23是一个app项目，而不是一个普通文件夹。</p>
+</li>
+<li><p>运行<code>python manage.py makemigrations myappF23</code>，让逆向工程为<code>settings.py</code>里的<code>myappF23</code>这个app创建一个<code>migrations</code>文件夹。这里的<code>0001_initial.py</code>将是逆向工程会运行的代码。(这个<code>.py</code>文件中存储的显然是python代码。此时，你可以使用<code> python manage.py sqlmigrate myappF23 0001</code>来查看<code>0001_initial.py</code>将会执行什么具体的SQL语句)</p>
+</li>
+<li><p>运行<code>python manage.py migrate 0001 </code>，这步将让Django使用这个0001创建数据库。因此你的目录下会多出<code>db.sqlite3</code>文件。</p>
+</li>
+<li><p>在完成创建数据库后，创建超级管理员，<code>python manage.py createsuperuser</code>。</p>
+</li>
+<li><p>可以使用<code>127.0.0.1:8000/admin</code>，使用你在第四步创建的账号密码登录。登录后，可以在网页中对数据库进行CRUD。</p>
+</li>
+</ol>
+<h2 id="更新步骤"><a href="#更新步骤" class="headerlink" title="更新步骤"></a>更新步骤</h2><p>上述步骤适用于新建，如果更改了<code>models.py</code>，还需要重新执行一遍下述步骤才能更新数据库。</p>
+<ol>
+<li>运行<code>python manage.py makemigrations myappF23</code>，重新生成一个0002为前缀的py文件。如果多次编写，请在文件夹下查看最新的编号。</li>
+<li>使用<code>python manage.py migrate myappF23 0002  </code>使得更改生效。</li>
+</ol>
+<h3 id="更新示例"><a href="#更新示例" class="headerlink" title="更新示例"></a>更新示例</h3><p>我意外删除了一个表Course，现在想重新生成。</p>
+<p>但是如果按照上述步骤更新，会出现报错：无法找到该表。这也是我讨厌Django的地方，非常难用，完全没考虑很多情况。</p>
+<p>解决方法：</p>
+<ol>
+<li><p>先在<code>models.py</code>中注释掉Course类</p>
+</li>
+<li><p>运行<code>python manage.py makemigrations myappF23</code>，此时显示如下：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">Migrations for 'myappF23':
+  myappF23/migrations/0004_delete_course.py
+    - Delete model Course
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>按理说，我们应该执行<code>python manage.py migrate myappF23 0004  </code>来运行这个编号为0004的代码从而删除Course表，但是由于我已经手动删了，所以需要虚假执行。使用<code>python manage.py migrate myappF23 0004 --fake </code>.该方法多了最后的参数，代表我们已经手动替Django操作过这个步骤了，只是让Django记录一下。</p>
+<pre class="line-numbers language-shell"><code class="language-shell">Operations to perform:
+  Target specific migration: 0004_delete_course, from myappF23
+Running migrations:
+  Applying myappF23.0004_delete_course... FAKED
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>取消注释Course类</p>
+</li>
+<li><p>重新<code>python manage.py makemigrations myappF23</code>与<code>python manage.py migrate myappF23 0005</code>。成功</p>
+</li>
+</ol>
+<h1 id="类的编写"><a href="#类的编写" class="headerlink" title="类的编写"></a>类的编写</h1><p>在流程中的第二步提到，我们需要编写类，让其能被逆向，并且在Django中使用类似ORM的方式去对其CRUD。</p>
+<p>那么，如何编写类呢？</p>
+<p>首先，所有类必须写在 <code>models.py</code>中，并且继承<code>models.Model</code>这个类。</p>
+<p>因此，<code>models.py</code>的第一句总是<code>from django.db import models</code>.</p>
+<h2 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># CREATE TABLE "myappF23_student" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "first_name" varchar(100) NOT NULL, "last_name" varchar(100) NOT NULL, "email" varchar(200) NOT NULL UNIQUE, "date_of_birth" date NOT NULL);</span>
 
-int main(int argc, char *argv[])
-{
-    int a, b, c;
-    auto res1 = func(1, 2, 3);
-    tie(a, b, c) = res1;
-    cout << a << b << c << endl;
-    return 0;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>结果输出321.</p>
-<h1 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h1><p><code>tuple&lt;&gt;</code>可以理解为一个包，可以对多个值进行打包。而这个“包”本身只是一个变量，这样就能达成“C++函数只能返回一个变量”的条件，同时满足“返回了多个值”。</p>
-<p>上述例子中，函数<code>func()</code>返回了一个tuple变量（通过使用<code>make_tuple()</code>函数生成的）。这样调用方就能接收一个变量。</p>
-<p>但是这个变量不能直接使用，需要使用<code>std::tie()</code>函数来解包才能使用。</p>
-<p>上述13与14行可以改为</p>
-<pre class="line-numbers language-c++"><code class="language-c++">tie(std::ignore, std::ignore, c) = res1;
-cout << a << endl;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>从而只取最小值</p>
-<h1 id="其他听闻"><a href="#其他听闻" class="headerlink" title="其他听闻"></a>其他听闻</h1><p><code>tuple</code> 即元组，可以理解为pair的扩展，可以用来将不同类型的元素存放在一起，常用于函数的多返回值。在c++ 11标准库中，加入了std::tie，在c++ 14中改进，方便使用。[1]</p>
-<p>pair只能把2个数据打包，而tuple可以打包更多的数据，虽然超过了9个时，其方式就比较搞笑了。[2]</p>
+<span class="token keyword">class</span> <span class="token class-name">Student</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    STUDENT_STATUS_CHOICES <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">(</span><span class="token string">'ER'</span><span class="token punctuation">,</span> <span class="token string">'Enrolled'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span><span class="token string">'SP'</span><span class="token punctuation">,</span> <span class="token string">'Suspended'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span><span class="token string">'GD'</span><span class="token punctuation">,</span> <span class="token string">'Graduated'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">]</span>
+    first_name <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">)</span>
+    last_name <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">)</span>
+    email <span class="token operator">=</span> models<span class="token punctuation">.</span>EmailField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">200</span><span class="token punctuation">,</span> unique<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    date_of_birth <span class="token operator">=</span> models<span class="token punctuation">.</span>DateField<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    status <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> choices<span class="token operator">=</span>STUDENT_STATUS_CHOICES<span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token string">'ER'</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>first_name
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>这样创建的类会有一个默认的id作为主键。</strong>也可以使用<code>sid = models.IntegerField(primary_key=True) </code>或者<code>sid = models.AutoField(primary_key=True)</code>来给student类一个id。</p>
+<h2 id="类与类的关系"><a href="#类与类的关系" class="headerlink" title="类与类的关系"></a>类与类的关系</h2><p>类与类之间有2中关系：<strong>多对一</strong>和<strong>多对多</strong>。注意，没有 <strong>一对多或者一对一</strong>，永远只有 **’多对’**开头的关系。</p>
+<p> 额外创建一个类：教师类</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Instructor</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    first_name <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">128</span><span class="token punctuation">)</span>
+    last_name <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">128</span><span class="token punctuation">)</span>
+    bio <span class="token operator">=</span> models<span class="token punctuation">.</span>TextField<span class="token punctuation">(</span>null<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> blank<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>first_name
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>其中bio字段是老师的简介：</p>
+<ul>
+<li><code>blank=True</code>: 表示在表单验证时，该字段可以为空。这影响到表单的验证行为，允许用户在表单中不填写这个字段。</li>
+<li><code>null=True</code>: 表示在数据库中，该字段可以存储为 NULL。如果这个字段不设置为可空 (<code>null=False</code>)，那么在数据库中该字段将不允许存储为 NULL 值。</li>
+</ul>
+<p> 再额外创建一个类：课程类</p>
+<p>该课程有多对一（1个课程只有1个老师）和多对多（1个课程可以有多个学生上，1个学生也可以选多个课程）关系。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Course</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    COURSE_LEVEL_CHOICES <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">(</span><span class="token string">'BE'</span><span class="token punctuation">,</span> <span class="token string">'Beginner'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span><span class="token string">'IN'</span><span class="token punctuation">,</span> <span class="token string">'Intermediate'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span><span class="token string">'AD'</span><span class="token punctuation">,</span> <span class="token string">'Advanced'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
+    title <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">200</span><span class="token punctuation">)</span>
+    description <span class="token operator">=</span> models<span class="token punctuation">.</span>TextField<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    Instructor <span class="token operator">=</span> models<span class="token punctuation">.</span>ForeignKey<span class="token punctuation">(</span>Instructor<span class="token punctuation">,</span> on_delete<span class="token operator">=</span>models<span class="token punctuation">.</span>CASCADE<span class="token punctuation">)</span>
+    students <span class="token operator">=</span> models<span class="token punctuation">.</span>ManyToManyField<span class="token punctuation">(</span>Student<span class="token punctuation">,</span> blank<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    start_date <span class="token operator">=</span> models<span class="token punctuation">.</span>DateField<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    end_date <span class="token operator">=</span> models<span class="token punctuation">.</span>DateField<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    price <span class="token operator">=</span> models<span class="token punctuation">.</span>DecimalField<span class="token punctuation">(</span>max_digits<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> decimal_places<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+    level <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span> choices<span class="token operator">=</span>COURSE_LEVEL_CHOICES<span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token string">'BE'</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>title
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>肉眼可见地，多对一关系为一个普通的外键，其中第9行里的<code>on_delete=models.CASCADE</code>代表级联删除，表示如果删除了这个教授，那么对应的这个课程也会被删除。<strong>记住，因为是多对一，所以这个关系会写在“多”的类里，那个“一”应该写在前面</strong>。在本案例中，教师类写在课程类的前面，并且外键写在课程类中。</p>
+<p>而多对多关系就无所谓定义在哪了。本案例中，因为我是先写的学生类，再写的课程类，所以我将多对多关系写在课程类中。这个关系的定义在第10行。遇到这种情况时，Django其实会额外创建一个表<code>course_student</code>来表示多对多关系。<code>blank=True</code>代表这个关联表是空也无所谓。</p>
+<p>至此，我有了4个表：<code>course, course_student, student, instructor</code>.</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>至于如何编写自增主键啥的，或者想了解更多信息的，请看文档：<a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.2/topics/db/models/">https://docs.djangoproject.com/en/4.2/topics/db/models/</a></p>
 <h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ol>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/RioTian/p/14076214.html">https://www.cnblogs.com/RioTian/p/14076214.html</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/whereismatrix/article/details/125071222">https://blog.csdn.net/whereismatrix/article/details/125071222</a></li>
+<li>官方文档：<a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.2/intro/tutorial02/">https://docs.djangoproject.com/en/4.2/intro/tutorial02/</a></li>
 </ol>
 
                 
@@ -475,7 +582,7 @@ cout << a << endl;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.vskendo.com/2023/10/15/cpp-shi-yong-pair-huo-tuple-fan-hui-duo-ge-zhi/">https://blog.vskendo.com/2023/10/15/cpp-shi-yong-pair-huo-tuple-fan-hui-duo-ge-zhi/</a>
+                    <a href="https://blog.vskendo.com/2023/10/26/python3-django-ni-xiang-gong-cheng/">https://blog.vskendo.com/2023/10/26/python3-django-ni-xiang-gong-cheng/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -513,16 +620,16 @@ cout << a << endl;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/C-C/">
-                                    <span class="chip bg-color">C/C++</span>
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
                                 </a>
                             
-                                <a href="/tags/pair/">
-                                    <span class="chip bg-color">pair</span>
+                                <a href="/tags/Django/">
+                                    <span class="chip bg-color">Django</span>
                                 </a>
                             
-                                <a href="/tags/tuple/">
-                                    <span class="chip bg-color">tuple</span>
+                                <a href="/tags/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/">
+                                    <span class="chip bg-color">逆向工程</span>
                                 </a>
                             
                         </div>
@@ -570,9 +677,68 @@ cout << a << endl;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/10/26/python3-django-ni-xiang-gong-cheng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="从0搭建Django项目 - 2. Django逆向工程">
+                        
+                        <span class="card-title">从0搭建Django项目 - 2. Django逆向工程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            使用Django自带的逆向工程，完成类到数据库自动建表。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/python/" class="post-category">
+                                    python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/Django/">
+                        <span class="chip bg-color">Django</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/">
+                        <span class="chip bg-color">逆向工程</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2023/10/15/cpp-shu-zu-yu-vector-cao-zuo-ji-qiao/">
                     <div class="card-image">
@@ -590,9 +756,9 @@ cout << a << endl;
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-10-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -614,63 +780,6 @@ cout << a << endl;
                     
                     <a href="/tags/vector/">
                         <span class="chip bg-color">vector</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/07/04/chuang-jian-mysql-zhang-hu-bing-zai-vscode-zhong-shi-yong/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="创建mysql账户并在vscode中使用">
-                        
-                        <span class="card-title">创建mysql账户并在vscode中使用</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            在vscode中管理数据库，又不想使用root账户。
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-04
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
-                                    运维
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
-                    </a>
-                    
-                    <a href="/tags/sql/">
-                        <span class="chip bg-color">sql</span>
-                    </a>
-                    
-                    <a href="/tags/vscode/">
-                        <span class="chip bg-color">vscode</span>
                     </a>
                     
                 </div>
@@ -788,13 +897,6 @@ cout << a << endl;
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
-    });
-</script>
 
 
 
