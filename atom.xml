@@ -6,7 +6,7 @@
   <link href="https://blog.vskendo.com/atom.xml" rel="self"/>
   
   <link href="https://blog.vskendo.com/"/>
-  <updated>2023-10-27T08:26:56.879Z</updated>
+  <updated>2023-11-08T20:47:05.665Z</updated>
   <id>https://blog.vskendo.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GraphQL入门到aws实战 - 1. 了解GraphQL</title>
+    <link href="https://blog.vskendo.com/2023/11/08/graphql-ru-men-dao-aws-shi-zhan/"/>
+    <id>https://blog.vskendo.com/2023/11/08/graphql-ru-men-dao-aws-shi-zhan/</id>
+    <published>2023-11-08T06:49:44.000Z</published>
+    <updated>2023-11-08T20:47:05.665Z</updated>
+    
+    
+    <summary type="html">学习GraphQL基础语法</summary>
+    
+    
+    
+    <category term="graphql" scheme="https://blog.vskendo.com/categories/graphql/"/>
+    
+    
+    <category term="GraphQL" scheme="https://blog.vskendo.com/tags/GraphQL/"/>
+    
+    <category term="aws" scheme="https://blog.vskendo.com/tags/aws/"/>
+    
+  </entry>
   
   <entry>
     <title>从0搭建Django项目 - 2. Django逆向工程</title>
@@ -144,9 +165,9 @@
     
     <category term="CentOS" scheme="https://blog.vskendo.com/tags/CentOS/"/>
     
-    <category term="linux" scheme="https://blog.vskendo.com/tags/linux/"/>
-    
     <category term="CentOs Stream" scheme="https://blog.vskendo.com/tags/CentOs-Stream/"/>
+    
+    <category term="linux" scheme="https://blog.vskendo.com/tags/linux/"/>
     
   </entry>
   
@@ -209,32 +230,11 @@
     <category term="运维" scheme="https://blog.vskendo.com/categories/%E8%BF%90%E7%BB%B4/"/>
     
     
+    <category term="linux" scheme="https://blog.vskendo.com/tags/linux/"/>
+    
     <category term="数据库" scheme="https://blog.vskendo.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     <category term="sql" scheme="https://blog.vskendo.com/tags/sql/"/>
-    
-    <category term="linux" scheme="https://blog.vskendo.com/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOs 安装本地yum仓库（createrepo+nginx实现）</title>
-    <link href="https://blog.vskendo.com/2020/10/30/centos-an-zhuang-ben-di-yum-cang-ku-createrepo-nginx-shi-xian/"/>
-    <id>https://blog.vskendo.com/2020/10/30/centos-an-zhuang-ben-di-yum-cang-ku-createrepo-nginx-shi-xian/</id>
-    <published>2020-10-30T08:07:12.000Z</published>
-    <updated>2022-05-04T22:00:48.589Z</updated>
-    
-    
-    <summary type="html">LaTeX是一种基于TeX的文档排版系统，成为现在最流行的科技写作——尤其是数学写作的工具之一.</summary>
-    
-    
-    
-    <category term="运维" scheme="https://blog.vskendo.com/categories/%E8%BF%90%E7%BB%B4/"/>
-    
-    
-    <category term="CentOs" scheme="https://blog.vskendo.com/tags/CentOs/"/>
-    
-    <category term="createrepo" scheme="https://blog.vskendo.com/tags/createrepo/"/>
     
   </entry>
   
